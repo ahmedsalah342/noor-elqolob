@@ -1,0 +1,34 @@
+{
+    "settings": "Pengaturan",
+    "brightness": "Kecerahan",
+    "brightness_level": "Tingkat Kecerahan",
+    "font": "Font",
+    "font_type": "Jenis Font",
+    "font_size": "Ukuran Font",
+    "language": "Bahasa",
+    "prayer_calc": "Perhitungan Waktu Shalat",
+    "notifications": "Notifikasi",
+    "before_adhan": "Notifikasi Sebelum Adzan",
+    "no_notification": "Tanpa Notifikasi",
+    "minutes_5": "5 Menit",
+    "minutes_10": "10 Menit",
+    "minutes_15": "15 Menit",
+    "minutes_30": "30 Menit",
+    "prayer_notifications": "Notifikasi Shalat",
+    "athkar_notifications": "Notifikasi Dzikir",
+    "calculation_methods": {
+        "egypt": "Otoritas Survei Umum Mesir",
+        "makkah": "Ummul Qura, Makkah",
+        "karachi": "Universitas Ilmu Islam, Karachi",
+        "isna": "Masyarakat Islam Amerika Utara",
+        "mwl": "Liga Muslim Dunia"
+    },
+    "prayer_times": {
+        "fajr": "Subuh",
+        "sunrise": "Terbit",
+        "dhuhr": "Dzuhur",
+        "asr": "Ashar",
+        "maghrib": "Maghrib",
+        "isha": "Isya"
+    }
+}

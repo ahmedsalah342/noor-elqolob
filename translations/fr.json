@@ -1,0 +1,34 @@
+{
+    "settings": "Paramètres",
+    "brightness": "Luminosité",
+    "brightness_level": "Niveau de Luminosité",
+    "font": "Police",
+    "font_type": "Type de Police",
+    "font_size": "Taille de Police",
+    "language": "Langue",
+    "prayer_calc": "Calcul des Horaires de Prière",
+    "notifications": "Notifications",
+    "before_adhan": "Notification Avant Adhan",
+    "no_notification": "Aucune Notification",
+    "minutes_5": "5 Minutes",
+    "minutes_10": "10 Minutes",
+    "minutes_15": "15 Minutes",
+    "minutes_30": "30 Minutes",
+    "prayer_notifications": "Notifications de Prière",
+    "athkar_notifications": "Notifications de Dhikr",
+    "calculation_methods": {
+        "egypt": "Autorité Générale Égyptienne de Surveillance",
+        "makkah": "Oumm Al-Qura, La Mecque",
+        "karachi": "Université des Sciences Islamiques, Karachi",
+        "isna": "Société Islamique d'Amérique du Nord",
+        "mwl": "Ligue Islamique Mondiale"
+    },
+    "prayer_times": {
+        "fajr": "Fajr",
+        "sunrise": "Lever du Soleil",
+        "dhuhr": "Dhuhr",
+        "asr": "Asr",
+        "maghrib": "Maghrib",
+        "isha": "Isha"
+    }
+}

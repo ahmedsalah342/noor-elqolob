@@ -1,0 +1,34 @@
+{
+    "settings": "Ayarlar",
+    "brightness": "Parlaklık",
+    "brightness_level": "Parlaklık Seviyesi",
+    "font": "Yazı Tipi",
+    "font_type": "Yazı Tipi Türü",
+    "font_size": "Yazı Boyutu",
+    "language": "Dil",
+    "prayer_calc": "Namaz Vakti Hesaplama",
+    "notifications": "Bildirimler",
+    "before_adhan": "Ezan Öncesi Bildirim",
+    "no_notification": "Bildirim Yok",
+    "minutes_5": "5 Dakika",
+    "minutes_10": "10 Dakika",
+    "minutes_15": "15 Dakika",
+    "minutes_30": "30 Dakika",
+    "prayer_notifications": "Namaz Bildirimleri",
+    "athkar_notifications": "Zikir Bildirimleri",
+    "calculation_methods": {
+        "egypt": "Mısır Genel Araştırma Kurumu",
+        "makkah": "Ümmül Kurâ, Mekke",
+        "karachi": "İslami İlimler Üniversitesi, Karaçi",
+        "isna": "Kuzey Amerika İslam Topluluğu",
+        "mwl": "Dünya İslam Birliği"
+    },
+    "prayer_times": {
+        "fajr": "İmsak",
+        "sunrise": "Güneş",
+        "dhuhr": "Öğle",
+        "asr": "İkindi",
+        "maghrib": "Akşam",
+        "isha": "Yatsı"
+    }
+}

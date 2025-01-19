@@ -1,0 +1,34 @@
+{
+    "settings": "ترتیبات",
+    "brightness": "روشنی",
+    "brightness_level": "روشنی کی سطح",
+    "font": "فونٹ",
+    "font_type": "فونٹ کی قسم",
+    "font_size": "فونٹ سائز",
+    "language": "زبان",
+    "prayer_calc": "نماز کے اوقات کا حساب",
+    "notifications": "نوٹیفکیشنز",
+    "before_adhan": "اذان سے پہلے نوٹیفکیشن",
+    "no_notification": "کوئی نوٹیفکیشن نہیں",
+    "minutes_5": "5 منٹ",
+    "minutes_10": "10 منٹ",
+    "minutes_15": "15 منٹ",
+    "minutes_30": "30 منٹ",
+    "prayer_notifications": "نماز کی نوٹیفکیشنز",
+    "athkar_notifications": "اذکار کی نوٹیفکیشنز",
+    "calculation_methods": {
+        "egypt": "مصری جنرل سروے اتھارٹی",
+        "makkah": "ام القریٰ، مکہ مکرمہ",
+        "karachi": "جامعہ علوم اسلامیہ، کراچی",
+        "isna": "شمالی امریکہ اسلامک سوسائٹی",
+        "mwl": "رابطہ عالم اسلامی"
+    },
+    "prayer_times": {
+        "fajr": "فجر",
+        "sunrise": "طلوع آفتاب",
+        "dhuhr": "ظہر",
+        "asr": "عصر",
+        "maghrib": "مغرب",
+        "isha": "عشاء"
+    }
+}

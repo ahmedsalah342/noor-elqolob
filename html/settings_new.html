@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - نور القلوب</title>
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/notification_settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="settings-container">
+        <h2>الإعدادات</h2>
+        
+        <!-- قسم إعدادات التنبيهات والأذان -->
+        <div class="settings-section notifications-settings">
+            <h3>إعدادات الأذان والتنبيهات</h3>
+            
+            <!-- اختيار المؤذن -->
+            <div class="setting-item">
+                <label for="muadhin" class="setting-label">اختيار المؤذن</label>
+                <select id="muadhin" name="muadhin" class="setting-select">
+                    <option value="makkah">الحرم المكي</option>
+                    <option value="madinah">مشاري راشد العفاسي</option>
+                    <option value="tobar">نصر الدين طوبار</option>
+                    <option value="qatami">ناصر القطامي</option>
+                    <option value="refaat">محمد رفعت</option>
+                    <option value="husary">محمود الحصري</option>
+                    <option value="minshawi">محمد صديق المنشاوي</option>
+                    <option value="basit">عبد الباسط عبد الصمد</option>
+                    <option value="quds">أذان القدس</option>
+                </select>
+            </div>
+
+            <!-- مستوى صوت الأذان -->
+            <div class="setting-item">
+                <label for="adhanVolume" class="setting-label">مستوى صوت الأذان</label>
+                <div class="volume-control">
+                    <input type="range" id="adhanVolume" name="adhanVolume" min="0" max="100" value="70">
+                    <span class="volume-value">70%</span>
+                </div>
+            </div>
+
+            <!-- معاينة الأذان -->
+            <div class="setting-item">
+                <div class="audio-controls">
+                    <button id="toggleAdhan" class="toggle-button">
+                        <span class="toggle-icon">
+                            <i class="fas fa-play"></i>
+                        </span>
+                        <span class="toggle-text">معاينة الأذان</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- تذكير قبل الصلاة -->
+            <div class="setting-item">
+                <label for="beforePrayerTime" class="setting-label">تذكير قبل الصلاة</label>
+                <select id="beforePrayerTime" name="beforePrayerTime" class="setting-select">
+                    <option value="5">5 دقائق</option>
+                    <option value="10">10 دقائق</option>
+                    <option value="15">15 دقيقة</option>
+                </select>
+            </div>
+
+            <!-- تأكيد الصلاة -->
+            <div class="setting-item">
+                <label for="prayerConfirmation" class="setting-label">تذكير! إذا لم يتم تأكيد الصلاة</label>
+                <select id="prayerConfirmation" name="prayerConfirmation" class="setting-select">
+                    <option value="10">10 دقائق</option>
+                    <option value="15">15 دقيقة</option>
+                    <option value="20">20 دقيقة</option>
+                </select>
+            </div>
+
+            <!-- نوع التنبيه -->
+            <div class="setting-item">
+                <h4>نوع التنبيه</h4>
+                <div class="notification-types">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="soundNotification" name="soundNotification" checked>
+                        <span class="checkmark"></span>
+                        صوت الأذان
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="vibrationNotification" name="vibrationNotification" checked>
+                        <span class="checkmark"></span>
+                        اهتزاز
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="screenNotification" name="screenNotification" checked>
+                        <span class="checkmark"></span>
+                        رسالة على الشاشة
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تضمين ملفات JavaScript -->
+    <script src="../js/audio_manager.js"></script>
+    <script src="../js/prayer_settings_new.js"></script>
+</body>
+</html>

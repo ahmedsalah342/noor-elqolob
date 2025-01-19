@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="600" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- تدرج لوني للخلفية -->
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#e8f5e9;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#c8e6c9;stop-opacity:0.9" />
+        </linearGradient>
+        <pattern id="pattern1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M0 10 Q5 0, 10 10 T20 10" stroke="#a5d6a7" fill="none" opacity="0.3"/>
+        </pattern>
+    </defs>
+    
+    <!-- خلفية متدرجة -->
+    <rect width="100%" height="100%" fill="url(#grad1)"/>
+    
+    <!-- نمط زخرفي -->
+    <rect width="100%" height="100%" fill="url(#pattern1)"/>
+    
+    <!-- أشكال زخرفية للأشجار والورود -->
+    <g opacity="0.1">
+        <!-- شجرة بسيطة -->
+        <path d="M50 500 L80 400 L20 400 Z" fill="#2e7d32"/>
+        <path d="M50 450 L70 370 L30 370 Z" fill="#2e7d32"/>
+        <rect x="45" y="400" width="10" height="50" fill="#4b2c20"/>
+        
+        <!-- وردة بسيطة -->
+        <circle cx="300" cy="100" r="15" fill="#f48fb1"/>
+        <circle cx="315" cy="115" r="15" fill="#f48fb1"/>
+        <circle cx="285" cy="115" r="15" fill="#f48fb1"/>
+        <circle cx="300" cy="130" r="15" fill="#f48fb1"/>
+        
+        <!-- أغصان متموجة -->
+        <path d="M200 300 Q250 250, 300 300 T400 300" stroke="#81c784" stroke-width="2"/>
+        <path d="M0 200 Q50 150, 100 200 T200 200" stroke="#81c784" stroke-width="2"/>
+    </g>
+</svg>

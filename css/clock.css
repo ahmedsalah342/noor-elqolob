@@ -1,0 +1,222 @@
+/* الساعة التناظرية */
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.prayer-times-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.clock-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-bottom: -6px;
+}
+
+.analog-clock {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    background: var(--bg-color);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.analog-clock .number {
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    padding-top: 5px;
+}
+
+.analog-clock .number span {
+    display: inline-block;
+    transform: rotate(calc(-1 * var(--rotation)));
+}
+
+.analog-clock .number.n1 { --rotation: 30deg; }
+.analog-clock .number.n2 { --rotation: 60deg; }
+.analog-clock .number.n3 { --rotation: 90deg; }
+.analog-clock .number.n4 { --rotation: 120deg; }
+.analog-clock .number.n5 { --rotation: 150deg; }
+.analog-clock .number.n6 { --rotation: 180deg; }
+.analog-clock .number.n7 { --rotation: 210deg; }
+.analog-clock .number.n8 { --rotation: 240deg; }
+.analog-clock .number.n9 { --rotation: 270deg; }
+.analog-clock .number.n10 { --rotation: 300deg; }
+.analog-clock .number.n11 { --rotation: 330deg; }
+.analog-clock .number.n12 { --rotation: 0deg; }
+
+.analog-clock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    transform: translate(-50%) rotate(calc(var(--rotation) * 1deg));
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.analog-clock .hand.hour {
+    width: 3px;
+    height: 30%;
+    background-color: var(--primary-color);
+}
+
+.analog-clock .hand.minute {
+    width: 2px;
+    height: 40%;
+    background-color: var(--primary-color);
+}
+
+.analog-clock .hand.second {
+    width: 1px;
+    height: 45%;
+    background-color: #ff6b6b;
+}
+
+.analog-clock .center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}
+
+.digital-clock {
+    font-family: 'Digital-7', monospace;
+    font-size: 2.5rem;
+    color: #ff0000;
+    background-color: #000;
+    padding: 5px 15px;
+    border-radius: 15px;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid #333;
+    margin-bottom: 2px;
+}
+
+.remaining-box {
+    background: linear-gradient(135deg, #6c5ce7, #a367dc);
+    margin-bottom: 0;
+}
+
+.prayer-time-box {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    width: 100%;
+    max-width: 260px;
+    margin: 1px 0;
+}
+
+.prayer-time-box:hover {
+    transform: translateX(-5px);
+}
+
+.prayer-time-box .prayer-name {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.prayer-time-box .prayer-time {
+    font-family: 'Digital-7', monospace;
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.prayer-times {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    width: 100%;
+    max-width: 260px;
+    margin-top: -300px;
+}
+
+.prayer-time-box[data-prayer="Fajr"] {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a367dc 100%);
+}
+
+.prayer-time-box[data-prayer="Sunrise"] {
+    background: linear-gradient(135deg, #ff7675 0%, #fab1a0 100%);
+}
+
+.prayer-time-box[data-prayer="Dhuhr"] {
+    background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+}
+
+.prayer-time-box[data-prayer="Asr"] {
+    background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+}
+
+.prayer-time-box[data-prayer="Maghrib"] {
+    background: linear-gradient(135deg, #e17055 0%, #ff7675 100%);
+}
+
+.prayer-time-box[data-prayer="Isha"] {
+    background: linear-gradient(135deg, #0984e3 0%, #74b9ff 100%);
+}
+
+#remaining-prayer-name {
+    font-weight: bold;
+}
+
+/* تحسينات للوضع المظلم */
+[data-theme="dark"] .digital-clock {
+    border-color: #666;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .prayer-time-box {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+}
+
+.remaining-time-box,
+.remaining-label,
+.next-prayer,
+.time-remaining {
+    display: none;
+}

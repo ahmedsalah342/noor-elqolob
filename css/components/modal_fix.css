@@ -1,0 +1,133 @@
+/* تعديلات النوافذ المنبثقة */
+.modal-box, 
+.settings-modal .modal-content {
+    position: relative;
+    background-color: var(--bg-color);
+    margin: 10% auto;
+    width: 85%;
+    max-width: 360px;
+    max-height: 80vh;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: translateY(0);
+    transition: transform var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header, 
+.settings-modal .modal-header {
+    padding: 12px;
+    background: var(--primary-color);
+}
+
+.modal-title h3, 
+.settings-modal .modal-header h2 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 15px;
+    overflow-y: auto;
+    max-height: calc(80vh - 120px);
+}
+
+/* تعديل أحجام العناصر داخل النوافذ */
+.prayer-time-card {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.prayer-time {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+.compass-container {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+}
+
+/* أزرار النوافذ */
+.modal-footer button,
+.settings-modal button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+/* تصميم زر الإغلاق */
+.close-modal,
+.close-btn,
+.close-button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 32px;
+    height: 32px;
+    background: #1a73e8;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.close-modal:hover,
+.close-btn:hover,
+.close-button:hover {
+    background: #1557b0;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.close-modal:active,
+.close-btn:active,
+.close-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.close-modal::before,
+.close-btn::before,
+.close-button::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url('images/close-icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+}
+
+/* تنسيقات الإعدادات */
+.settings-section {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.settings-section h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+/* تعديلات للشاشات الصغيرة */
+@media screen and (max-height: 600px) {
+    .modal-box, 
+    .settings-modal .modal-content {
+        margin: 5% auto;
+        max-height: 90vh;
+    }
+    
+    .modal-body {
+        max-height: calc(90vh - 100px);
+    }
+}

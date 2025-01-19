@@ -1,0 +1,53 @@
+.content-section {
+    padding: 20px;
+    margin: 15px 0;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.companion-card, .scholar-card {
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.companion-card:hover, .scholar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.companion-card h4, .scholar-card h4 {
+    color: #2c3e50;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #3498db;
+}
+
+.companion-card p, .scholar-card p {
+    color: #34495e;
+    line-height: 1.6;
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.companions-section, .scholars-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.companions-section h3, .scholars-section h3 {
+    grid-column: 1 / -1;
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin: 25px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #3498db;
+    text-align: center;
+}

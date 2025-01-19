@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(0 -540.36)">
+  <path d="m256 572.36-192 96v256l192 96 192-96v-256zm0 24 160 80v208l-160 80-160-80v-208zm-8 39.9v72.1h-64v224h64v72l-144-72v-224zm16 0 144 72v224l-144 72v-72h64v-224h-64z" color="#000000" color-rendering="auto" dominant-baseline="auto" fill="#333" image-rendering="auto" shape-rendering="auto" solid-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+ </g>
+</svg>

@@ -1,0 +1,696 @@
+/* تنسيقات البطاقات في القائمة الرئيسية */
+.card[onclick*="prayer-times"],
+.card[onclick*="qibla"] {
+    background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    transition: all 0.3s ease;
+}
+
+.card[onclick*="prayer-times"]:hover,
+.card[onclick*="qibla"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card[onclick*="prayer-times"] i {
+    color: #4CAF50;
+}
+
+.card[onclick*="qibla"] i {
+    color: #2196F3;
+}
+
+/* تنسيقات نافذة مواقيت الصلاة */
+.prayer-times-container {
+    padding: 20px 10px 0 10px;
+    font-size: 16px !important;
+    overflow: hidden;
+}
+
+.prayer-times-container * {
+    font-size: inherit !important;
+}
+
+.prayer-time-box {
+    font-size: 16px !important;
+}
+
+.prayer-time-box .prayer-name,
+.prayer-time-box .prayer-time {
+    font-size: inherit !important;
+}
+
+.prayer-times {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: -100px;
+}
+
+.prayer-times .prayer-card {
+    background: var(--bg-secondary);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.prayer-label {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.prayer-time {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* تنسيقات نافذة القبلة */
+.qibla-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.qibla-compass {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.compass-circle {
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.compass-arrow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 50%;
+    background: linear-gradient(to bottom, var(--primary-color) 50%, transparent 50%);
+    transform-origin: bottom center;
+    transition: transform 0.3s ease;
+}
+
+.kaaba-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.compass-labels span {
+    position: absolute;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.compass-n { top: 10px; left: 50%; transform: translateX(-50%); }
+.compass-e { right: 10px; top: 50%; transform: translateY(-50%); }
+.compass-s { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.compass-w { left: 10px; top: 50%; transform: translateY(-50%); }
+
+.qibla-info {
+    margin-top: 20px;
+    color: var(--text-secondary);
+}
+
+.qibla-info p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+/* تنسيقات الساعة التناظرية */
+.analog-clock {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #9c27b0;
+    border-radius: 50%;
+    margin: 20px auto;
+    position: relative;
+    background: #000000;
+    box-shadow: 0 0 20px rgba(156, 39, 176, 0.3);
+    direction: ltr;
+}
+
+.analog-clock .number {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-origin: 50% 50%;
+    font-family: Arial, sans-serif;
+    color: #1fff1f;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(31, 255, 31, 0.5);
+}
+
+.analog-clock .number span {
+    position: absolute;
+    display: block;
+    width: 30px;
+    text-align: center;
+}
+
+.analog-clock .n1 span { right: 20%; top: 10%; }
+.analog-clock .n2 span { right: 10%; top: 25%; }
+.analog-clock .n3 span { right: 5%; top: 45%; }
+.analog-clock .n4 span { right: 10%; top: 65%; }
+.analog-clock .n5 span { right: 20%; top: 80%; }
+.analog-clock .n6 span { right: 45%; top: 85%; }
+.analog-clock .n7 span { right: 65%; top: 80%; }
+.analog-clock .n8 span { right: 75%; top: 65%; }
+.analog-clock .n9 span { right: 80%; top: 45%; }
+.analog-clock .n10 span { right: 75%; top: 25%; }
+.analog-clock .n11 span { right: 65%; top: 10%; }
+.analog-clock .n12 span { right: 45%; top: 5%; }
+
+.analog-clock .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    border-radius: 5px;
+}
+
+.analog-clock .hour {
+    width: 4px;
+    height: 30%;
+    background: #9c27b0;
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
+}
+
+.analog-clock .minute {
+    width: 3px;
+    height: 40%;
+    background: #9c27b0;
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
+}
+
+.analog-clock .second {
+    width: 2px;
+    height: 45%;
+    background: #9c27b0;
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
+}
+
+.analog-clock .center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #9c27b0;
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
+    transform: translate(-50%, -50%);
+}
+
+/* تنسيق الساعة الرقمية */
+.digital-clock-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.digital-clock {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #9c27b0;
+    text-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+/* تنسيق قسم الوقت المتبقي */
+.remaining-time {
+    background: rgba(156, 39, 176, 0.1);
+    border: 1px solid #9c27b0;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 15px auto;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.2);
+}
+
+.remaining-time span {
+    color: #9c27b0;
+    margin: 0 5px;
+    font-size: 1em;
+}
+
+#next-prayer-name {
+    font-weight: bold;
+}
+
+#next-prayer-time {
+    font-weight: bold;
+}
+
+/* تنسيقات الساعة العقارب */
+.clock-container {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #333;
+    position: relative;
+    margin: 20px auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.clock-face {
+    width: 100%;
+    height: 100%;
+}
+
+.clock-numbers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    color: #333;
+}
+
+.clock-numbers span {
+    display: inline-block;
+    position: absolute;
+    font-size: 14px;
+}
+
+.clock-numbers span:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%); }
+.clock-numbers span:nth-child(2) { top: 50%; right: 10%; transform: translateY(-50%); }
+.clock-numbers span:nth-child(3) { bottom: 10%; left: 50%; transform: translateX(-50%); }
+.clock-numbers span:nth-child(4) { top: 50%; left: 10%; transform: translateY(-50%); }
+
+/* تنسيقات متجاوبة */
+@media (max-width: 768px) {
+    .prayer-times {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .qibla-compass {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prayer-times {
+        grid-template-columns: 1fr;
+    }
+    
+    .qibla-compass {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* تنسيقات متجاوبة للموبايل */
+@media screen and (max-width: 768px) {
+    .prayer-times-container {
+        padding: 15px;
+        max-width: 100%;
+        margin: 0 auto;
+        height: calc(100vh - 60px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .digital-clock {
+        font-size: 2.2em;
+        margin: 15px 0;
+    }
+
+    .analog-clock {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+    }
+
+    .remaining-time {
+        width: 95%;
+        padding: 10px 15px;
+        margin: 15px auto;
+    }
+
+    .prayer-times {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .prayer-time {
+        padding: 12px;
+        font-size: 1em;
+        background: var(--bg-secondary);
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* تنسيقات للشاشة الكاملة */
+    .modal {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-content {
+        padding: 20px;
+        flex: 1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-header {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+
+/* تنسيقات لضمان العرض الكامل على الموبايل */
+@media screen and (display-mode: standalone) {
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .phone-frame {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+        background: #000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+    }
+
+    .phone-container {
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        margin: 10px;
+        background: var(--bg-primary);
+        border-radius: 15px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phone-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+        background: var(--bg-primary);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .phone-frame {
+        background: var(--bg-primary);
+    }
+    
+    .phone-container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
+/* تنسيقات النافذة المنبثقة */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 580px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.modal-overlay.show {
+    display: block;
+}
+
+.modal-header {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-button {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: #9c27b0;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    background: #7b1fa2;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.close-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Dark Mode تحديث */
+[data-theme="dark"] .modal-header {
+    background: #2d2d2d;
+    border-bottom-color: #444;
+}
+
+[data-theme="dark"] .close-button {
+    background: #bb86fc;
+}
+
+[data-theme="dark"] .close-button:hover {
+    background: #9c27b0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #9c27b0;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.modal-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background: #fff;
+}
+
+/* تنسيقات للموبايل */
+@media screen and (max-width: 768px) {
+    .modal {
+        width: 300px;
+        height: 550px;
+    }
+    
+    .modal-header {
+        padding: 8px;
+    }
+    
+    .modal-content {
+        padding: 8px;
+    }
+}
+
+/* تنسيقات صفحة السور */
+.surah-container {
+    padding: 8px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.surah-title {
+    color: #9c27b0;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 8px 0;
+}
+
+.surah-info {
+    font-size: 0.8em;
+    text-align: center;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* تنسيق مشغل الصوت */
+.audio-player-container {
+    background: #f5f5f5;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 6px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.audio-player-title {
+    font-size: 0.9em;
+    margin: 4px 0;
+    color: #333;
+}
+
+.audio-player {
+    width: 100%;
+    height: 32px;
+}
+
+/* تنسيق نص السورة */
+.surah-text {
+    padding: 10px;
+    margin: 8px 0;
+    font-size: 0.95em;
+    line-height: 1.6;
+    text-align: center;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.surah-text-title {
+    font-size: 1em;
+    color: #333;
+    margin: 8px 0;
+    text-align: right;
+}
+
+/* تنسيقات للموبايل */
+@media screen and (max-width: 768px) {
+    .surah-container {
+        padding: 6px;
+    }
+
+    .surah-title {
+        font-size: 1.1em;
+        margin: 6px 0;
+    }
+
+    .surah-info {
+        font-size: 0.75em;
+        margin-bottom: 8px;
+    }
+
+    .audio-player-container {
+        padding: 6px;
+        margin: 5px 0;
+    }
+
+    .audio-player {
+        height: 30px;
+    }
+
+    .surah-text {
+        font-size: 0.9em;
+        padding: 8px;
+        line-height: 1.5;
+        margin: 6px 0;
+    }
+}
+
+/* تنسيق الآية القرآنية */
+.quran-verse {
+    text-align: center;
+    color: var(--text-primary);
+    font-family: 'Scheherazade New', 'Amiri', serif;
+    margin: 10px 0;
+    font-size: 16px !important;
+    opacity: 0.9;
+    line-height: 1.6;
+    padding: 5px 2px;
+    background: linear-gradient(to right, transparent, rgba(var(--primary-rgb), 0.05), transparent);
+    border-radius: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    overflow: visible;
+    direction: rtl;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: -0.3px;
+}
+
+/* تنسيق التاريخ */
+.date-display {
+    text-align: center;
+    margin: 10px 0;
+    color: var(--text-primary);
+    font-family: 'Amiri', serif;
+    opacity: 0.85;
+    direction: rtl;
+}
+
+.date-display .day-name {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.date-display .date {
+    font-size: 16px;
+}

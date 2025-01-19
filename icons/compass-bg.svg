@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(0 -540.36)">
+  <circle cx="256" cy="796.36" r="240" fill="none" stroke="#333" stroke-width="8"/>
+  <path d="m256 556.36v48" fill="none" stroke="#333" stroke-width="8"/>
+  <path d="m256 988.36v48" fill="none" stroke="#333" stroke-width="8"/>
+  <path d="m16 796.36h48" fill="none" stroke="#333" stroke-width="8"/>
+  <path d="m448 796.36h48" fill="none" stroke="#333" stroke-width="8"/>
+  <text x="256" y="580.36" fill="#333" font-family="Arial" font-size="40px" text-anchor="middle">N</text>
+  <text x="256" y="1028.36" fill="#333" font-family="Arial" font-size="40px" text-anchor="middle">S</text>
+  <text x="480" y="808.36" fill="#333" font-family="Arial" font-size="40px" text-anchor="middle">E</text>
+  <text x="32" y="808.36" fill="#333" font-family="Arial" font-size="40px" text-anchor="middle">W</text>
+ </g>
+</svg>

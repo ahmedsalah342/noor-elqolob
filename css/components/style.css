@@ -1,0 +1,9571 @@
+/* تنسيقات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* إطار الموبايل */
+.phone-frame {
+    width: 360px;
+    height: 640px;
+    background: white;
+    border-radius: 40px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.3);
+    border: 12px solid #333;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* شريط العنوان */
+.header {
+    background: #9c27b0;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.menu-button, .dark-mode-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.menu-button:hover {
+    transform: scale(1.1);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    min-width: 180px;
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--hover-color);
+}
+
+.dropdown-menu i {
+    margin-left: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --hover-color: #f0f0f0;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --hover-color: #2d2d2d;
+}
+
+/* تنسيقات البطاقات */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+.card i {
+    color: #9c27b0;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    color: #333;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* تنسيق النوافذ المنبثقة */
+.modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 1000;
+}
+
+.modal-header {
+    background: #9c27b0;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.modal-content {
+    padding: 20px;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+}
+
+/* تنسيق النص العربي */
+.arabic-text {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 1.1em;
+    line-height: 2;
+    text-align: center;
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f0fc;
+    border-radius: 10px;
+}
+
+.ruqya-title {
+    color: #9c27b0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.ruqya-info {
+    background: #f3e5f5;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.benefits-title {
+    color: #7b1fa2;
+    margin: 20px 0 10px;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefits-list li {
+    padding: 8px 25px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.benefits-list li:before {
+    content: "•";
+    color: #9c27b0;
+    position: absolute;
+    right: 5px;
+}
+
+/* تنسيق السكرولبار */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9c27b0;
+    border-radius: 3px;
+}
+
+/* تأثيرات حركية */
+.modal {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* تحسين مظهر النص والعناوين */
+.surah-title {
+    color: #9c27b0;
+    margin: 15px 0;
+    font-size: 1.2em;
+}
+
+.verse-meaning {
+    background: #faf5fb;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-size: 0.9em;
+    line-height: 1.8;
+}
+
+.hadith-text {
+    font-style: italic;
+    padding: 15px;
+    background: #f3e5f5;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.hadith-narrator {
+    display: block;
+    color: #7b1fa2;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* تنسيقات الوضع الليلي */
+body.dark-mode {
+    background: #202124;
+}
+
+body.dark-mode .phone-frame {
+    background: #292a2d;
+    border-color: #3c4043;
+}
+
+body.dark-mode .header {
+    background: #4a3463;
+}
+
+body.dark-mode .card {
+    background: #4a3463;
+    color: #e8eaed;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .modal {
+    background: #292a2d;
+    color: #e8eaed;
+}
+
+body.dark-mode .modal-header {
+    background: #4a3463;
+}
+
+body.dark-mode .arabic-text {
+    background: #35363a;
+    color: #e8eaed;
+}
+
+body.dark-mode .ruqya-info {
+    background: #35363a;
+    color: #e8eaed;
+}
+
+body.dark-mode .benefits-list li {
+    color: #e8eaed;
+}
+
+body.dark-mode .benefits-list li:before {
+    color: #b388ff;
+}
+
+body.dark-mode .verse-meaning {
+    background: #35363a;
+    color: #e8eaed;
+}
+
+body.dark-mode .hadith-text {
+    background: #35363a;
+    color: #e8eaed;
+}
+
+body.dark-mode .surah-title,
+body.dark-mode .benefits-title {
+    color: #b388ff;
+}
+
+body.dark-mode .hadith-narrator {
+    color: #b388ff;
+}
+
+/* تأثير حركي للتبديل */
+.phone-frame,
+.header,
+.card,
+.modal,
+.modal-header,
+.arabic-text,
+.ruqya-info,
+.benefits-list li,
+.verse-meaning,
+.hadith-text {
+    transition: all 0.3s ease;
+}
+
+/* أيقونة الوضع الليلي */
+.dark-mode-toggle {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #b388ff;
+}
+
+/* تحسين قراءة النصوص في الوضع الليلي */
+body.dark-mode .modal-content {
+    color: #e8eaed;
+}
+
+body.dark-mode .card:hover {
+    background: #573d75;
+}
+
+/* تحسين ظهور السكرولبار في الوضع الليلي */
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #35363a;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #b388ff;
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت Plyr */
+.plyr-container {
+    margin: 15px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.plyr--audio .plyr__controls {
+    padding: 15px;
+    background: white;
+    color: #333;
+    border-radius: 10px;
+}
+
+.plyr--audio .plyr__control {
+    color: #9c27b0;
+}
+
+.plyr--audio .plyr__control:hover {
+    background: #f3e5f5;
+}
+
+.plyr--full-ui input[type=range] {
+    color: #9c27b0;
+}
+
+.plyr--audio .plyr__progress__buffer {
+    color: #f3e5f5;
+}
+
+/* تنسيقات الوضع الليلي */
+body.dark-mode .plyr-container {
+    background: #2d1838;
+}
+
+body.dark-mode .plyr--audio .plyr__controls {
+    background: #2d1838;
+    color: #e8eaed;
+}
+
+body.dark-mode .plyr--audio .plyr__control {
+    color: #b388ff;
+}
+
+body.dark-mode .plyr--audio .plyr__control:hover {
+    background: #4a3463;
+}
+
+body.dark-mode .plyr--full-ui input[type=range] {
+    color: #b388ff;
+}
+
+body.dark-mode .plyr--audio .plyr__progress__buffer {
+    color: #4a3463;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .plyr-container {
+        margin: 10px 0;
+    }
+    
+    .plyr--audio .plyr__controls {
+        padding: 10px;
+    }
+}
+
+/* تنسيق مشغل الصوت المخصص */
+.custom-audio-player {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin: 15px 0;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.play-pause, .volume {
+    background: #9c27b0;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.play-pause:hover, .volume:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.time {
+    font-family: monospace;
+    color: #666;
+    min-width: 45px;
+}
+
+.progress-bar {
+    flex: 1;
+    background: #f3e5f5;
+    height: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress {
+    background: #9c27b0;
+    height: 100%;
+    border-radius: 3px;
+    width: 0;
+    position: relative;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: -4px;
+    width: 12px;
+    height: 12px;
+    background: #9c27b0;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.volume-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.volume-slider {
+    width: 80px;
+    height: 6px;
+    background: #f3e5f5;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.volume-progress {
+    background: #9c27b0;
+    height: 100%;
+    border-radius: 3px;
+    width: 100%;
+}
+
+/* تنسيقات الوضع الليلي */
+body.dark-mode .custom-audio-player {
+    background: #2d1838;
+}
+
+body.dark-mode .time {
+    color: #e8eaed;
+}
+
+body.dark-mode .progress-bar,
+body.dark-mode .volume-slider {
+    background: #1e1e1e;
+}
+
+body.dark-mode .progress,
+body.dark-mode .volume-progress {
+    background: #b388ff;
+}
+
+body.dark-mode .progress::after {
+    background: #b388ff;
+    border-color: #2d1838;
+}
+
+body.dark-mode .play-pause,
+body.dark-mode .volume {
+    background: #4a3463;
+}
+
+body.dark-mode .play-pause:hover,
+body.dark-mode .volume:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .volume-container {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
+/* تنسيق قسم الصوت مع iframe */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    max-width: 747px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+body.dark-mode .iframe-container {
+    background: #1e1e1e;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-section {
+        padding: 10px;
+        margin: 15px 0;
+    }
+    
+    .iframe-container {
+        padding-bottom: 75%; /* نسبة أعلى للشاشات الصغيرة */
+    }
+}
+
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تحسين حجم مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* تنسيق أزرار التحكم في الصوت */
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #9c27b0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.control-btn:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* تنسيق الأزرار في الوضع الليلي */
+body.dark-mode .control-btn {
+    background: #4a3463;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #573d75;
+}
+
+/* تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 480px) {
+    .audio-controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* تنسيق قائمة الصوت */
+.audio-list {
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.audio-info span:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.audio-info span:last-child {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    color: #6c757d;
+}
+
+.download-btn:hover {
+    background-color: #e9ecef;
+}
+
+.play-btn {
+    color: #28a745;
+}
+
+.play-btn:hover {
+    background-color: #d4edda;
+}
+
+.audio-controls i {
+    font-size: 1.2em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button i {
+    color: #333;
+    font-size: 24px;
+}
+
+.audio-frame {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.audio-frame iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* تنسيق قسم الصوت */
+.audio-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    background: #f3e5f5;
+}
+
+body.dark-mode .audio-section {
+    background: #2d1838;
+}
+
+.audio-section h3 {
+    color: #7b1fa2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .audio-section h3 {
+    color: #b388ff;
+}
+
+/* تنسيق مشغل الصوت */
+.plyr--audio {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}

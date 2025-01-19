@@ -1,0 +1,134 @@
+/* تنسيقات خاصة بنظام Android */
+:root {
+    --safe-area-top: env(safe-area-inset-top);
+    --safe-area-bottom: env(safe-area-inset-bottom);
+    --status-bar-height: 24px;
+}
+
+body {
+    padding-top: calc(var(--safe-area-top) + var(--status-bar-height));
+    padding-bottom: var(--safe-area-bottom);
+}
+
+/* تحسينات لنمط Material Design */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:active {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* تنسيقات خاصة بالأزرار */
+button {
+    min-height: 48px; /* للتوافق مع إرشادات Material Design */
+    border-radius: 24px;
+    padding: 0 24px;
+    text-transform: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* تنسيقات القوائم المنسدلة */
+select {
+    height: 48px;
+    border-radius: 8px;
+    padding: 0 16px;
+    background-color: #f5f5f5;
+    border: none;
+}
+
+/* تحسينات للنوافذ المنبثقة */
+.modal {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    border-radius: 16px;
+    padding: 24px;
+}
+
+/* تنسيقات الإشعارات */
+.notification-permission {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: #323232;
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* تحسينات للتحميل */
+.loading {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* تنسيقات خاصة بالقوائم */
+.list-item {
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+/* تحسينات للخط */
+@media (max-width: 360px) {
+    body {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+}
+
+/* دعم الوضع المظلم */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --surface-color: #1e1e1e;
+        --primary-text: rgba(255, 255, 255, 0.87);
+        --secondary-text: rgba(255, 255, 255, 0.6);
+    }
+    
+    body {
+        background-color: var(--background-color);
+        color: var(--primary-text);
+    }
+    
+    .card {
+        background-color: var(--surface-color);
+    }
+    
+    select {
+        background-color: var(--surface-color);
+        color: var(--primary-text);
+    }
+}

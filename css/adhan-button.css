@@ -1,0 +1,58 @@
+/* أنماط زر اختبار صوت الأذان */
+.adhan-test-button {
+    background: #2196F3; /* أزرق فاتح */
+    border: none;
+    border-radius: 12px; /* لجعل الزر دائرياً */
+    padding: 10px 20px; /* زيادة حجم الزر قليلاً */
+    color: white;
+    font-size: 1rem; /* زيادة حجم الخط */
+    font-weight: 600; /* خط أكثر سمكاً */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+    box-shadow: 0 3px 6px rgba(33, 150, 243, 0.3); /* ظل بنفس لون الزر */
+    position: static;
+}
+
+.adhan-test-button:hover {
+    background: #1976D2; /* أزرق أغمق قليلاً */
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4);
+}
+
+.adhan-test-button:active {
+    background: #1565C0; /* أزرق غامق */
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.2);
+}
+
+.adhan-test-button i {
+    font-size: 1.1rem; /* أيقونة أكبر */
+    color: rgba(255, 255, 255, 0.9); /* لون الأيقونة أبيض شفاف قليلاً */
+}
+
+.adhan-test-button.playing {
+    background: #1565C0;
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.2);
+}
+
+.adhan-test-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* إخفاء النص واظهار الأيقونة فقط */
+.adhan-test-button span {
+    display: none;
+}
+
+/* إزالة كل التأثيرات الحركية */
+.adhan-test-button, 
+.adhan-test-button:hover, 
+.adhan-test-button:active,
+.adhan-test-button.playing,
+.adhan-test-button i {
+    transform: none;
+    animation: none;
+}

@@ -1,0 +1,45 @@
+/* تنسيقات خاصة بالموبايل */
+@supports (padding: max(0px)) {
+    .modal-content {
+        padding-top: max(20px, env(safe-area-inset-top));
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+        background-color: var(--bg-color);
+        border-radius: 15px 15px 0 0;
+        margin-bottom: 0;
+    }
+
+    .modal {
+        align-items: flex-end;
+    }
+}
+
+/* تصحيح المربع الأسود في الموبايل */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 90vh;
+        margin: 0;
+        border-radius: 15px 15px 0 0;
+        transform: translateY(0);
+    }
+
+    .modal.show .modal-content {
+        transform: translateY(0);
+    }
+}
+
+/* تحسينات للأجهزة المحمولة */
+@media screen and (max-width: 480px) {
+    .header {
+        padding-top: env(safe-area-inset-top);
+    }
+
+    .modal-body {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}

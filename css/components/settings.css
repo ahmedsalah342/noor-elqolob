@@ -1,0 +1,676 @@
+/* تنسيقات الإعدادات */
+.settings-section {
+    background: #fff;
+    border-radius: 15px;
+    padding: 12px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.settings-section h3 {
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+    text-align: right;
+}
+
+.settings-content {
+    flex: 1;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 15px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* تنسيق شريط التحكم */
+.settings-section input[type="range"] {
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.settings-section input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border: 2px solid #00e1b0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* تنسيق القوائم المنسدلة */
+.settings-section select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-size: 14px;
+    color: var(--text-color);
+    font-family: var(--primary-font);
+}
+
+/* تنسيق التسميات */
+.setting-label {
+    color: var(--text-color);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* تنسيق قيمة شريط التمرير */
+.range-value {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+/* تنسيق المحتوى */
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 5px;
+}
+
+.brightness-control,
+.font-settings,
+.prayer-settings,
+.notifications-settings {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+}
+
+/* تنسيق مجموعة الإعدادات */
+.settings-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 10px 15px;
+    gap: 5px;
+}
+
+.settings-group h3 {
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+    text-align: right;
+}
+
+.settings-group:last-child {
+    margin-bottom: 0;
+}
+
+/* تنسيق التسميات */
+.settings-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+/* تنسيق الإعدادات */
+.settings-section {
+    background: #fff;
+    border-radius: 15px;
+    padding: 12px 20px;
+    margin: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.settings-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.settings-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.settings-item label {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.settings-select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    font-size: 1em;
+    min-width: 150px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.settings-select:hover {
+    border-color: #aaa;
+}
+
+.settings-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* تنسيق زر التبديل للتنبيهات */
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: #00e1b0;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(22px);
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* تنسيق شريط السطوع */
+input[type="range"] {
+    width: 150px;
+    height: 8px;
+    -webkit-appearance: none;
+    background: #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #2196F3;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* دعم RTL */
+[dir="rtl"] .settings-select {
+    padding-right: 12px;
+    padding-left: 30px;
+}
+
+[dir="rtl"] .slider:before {
+    right: 4px;
+    left: auto;
+}
+
+[dir="rtl"] input:checked + .slider:before {
+    transform: translateX(-26px);
+}
+
+/* تنسيقات اللغة */
+.language-settings {
+    margin: 15px 0;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.language-settings h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 40px;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.lang-btn img {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.lang-btn span {
+    font-size: 13px;
+    color: var(--text-color);
+}
+
+.lang-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 6px rgba(var(--primary-color-rgb), 0.2);
+}
+
+.lang-btn.active span {
+    color: white;
+}
+
+.language-dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-dropdown:hover {
+    border-color: var(--primary-color);
+}
+
+.language-dropdown:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+}
+
+.language-dropdown option {
+    padding: 10px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* تنسيق RTL للغات العربية والأردية */
+[dir="rtl"] .language-dropdown {
+    text-align: right;
+}
+
+[dir="ltr"] .language-dropdown {
+    text-align: left;
+}
+
+.settings-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.settings-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* تنسيقات خاصة للغة العربية */
+[dir="rtl"] .settings-select {
+    padding-right: 12px;
+    padding-left: 30px;
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.settings-item label {
+    font-size: 16px;
+    color: #333;
+}
+
+/* تنسيقات المواقيت والتنبيهات */
+.prayer-settings select,
+.notifications-settings select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
+    margin-top: 8px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    height: 40px;
+}
+
+select:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.notification-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.toggle-switch {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 40px;
+}
+
+.toggle-switch:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.toggle-slider {
+    position: relative;
+    width: 46px;
+    height: 24px;
+    background: #e0e0e0;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.toggle-slider:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input:checked + .toggle-slider {
+    background: var(--primary-color);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(22px);
+}
+
+.toggle-label {
+    color: var(--text-color);
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* تنسيقات شريط التمرير */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #e0e0e0;
+    outline: none;
+    margin: 10px 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* تنسيقات الخط */
+.font-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-group {
+    margin-bottom: 8px;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-color);
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.setting-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
+    font-size: 13px;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.brightness-control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.brightness-control label {
+    font-size: 13px;
+    color: var(--text-color);
+    opacity: 0.85;
+}
+
+#font-size-value {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--text-color);
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    padding: 15px 0;
+    border-radius: 20px;
+}
+
+/* تنسيق رسائل النجاح */
+.success-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+:root {
+    --primary-font: 'Amiri', serif;
+    --base-font-size: 16px;
+    --font-family: 'Amiri', serif;
+}
+
+body, 
+.modal-content, 
+.settings-content,
+.card,
+.arabic-text,
+.quran-text,
+.dua-text,
+.verse-section,
+.meanings-list,
+.settings-group,
+.settings-section,
+.surah-title,
+.intro-text,
+.battle-item,
+.prophet-name,
+.seerah-section {
+    font-family: var(--font-family);
+}
+
+/* عرض أمثلة للخطوط في القائمة المنسدلة */
+#fontSelector option {
+    font-size: 16px;
+    padding: 8px;
+}
+
+#fontSelector option[value="Amiri"] { font-family: 'Amiri', serif; }
+#fontSelector option[value="Cairo"] { font-family: 'Cairo', sans-serif; }
+#fontSelector option[value="Noto Naskh Arabic"] { font-family: 'Noto Naskh Arabic', serif; }
+#fontSelector option[value="Tajawal"] { font-family: 'Tajawal', sans-serif; }
+#fontSelector option[value="Aref Ruqaa"] { font-family: 'Aref Ruqaa', serif; }
+#fontSelector option[value="Reem Kufi"] { font-family: 'Reem Kufi', sans-serif; }
+#fontSelector option[value="Lateef"] { font-family: 'Lateef', serif; }
+#fontSelector option[value="Scheherazade New"] { font-family: 'Scheherazade New', serif; }
+#fontSelector option[value="Harmattan"] { font-family: 'Harmattan', sans-serif; }
+#fontSelector option[value="Markazi Text"] { font-family: 'Markazi Text', serif; }

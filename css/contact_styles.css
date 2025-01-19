@@ -1,0 +1,79 @@
+/* تنسيقات نموذج الاتصال */
+.contact-form-container {
+    padding: 20px;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    border-radius: 0 0 15px 15px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    padding-right: 45px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    font-family: var(--current-font);
+    font-size: 14px;
+    color: #333;
+}
+
+.input-group textarea {
+    height: 120px;
+    resize: none;
+}
+
+.icon-container {
+    position: absolute;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #4a90e2;
+    border-radius: 4px;
+}
+
+.icon-container i {
+    color: white;
+    font-size: 12px;
+}
+
+.submit-btn {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--current-font);
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #357abd;
+}
+
+.success-message {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    text-align: center;
+    color: #4a90e2;
+    font-family: var(--current-font);
+}

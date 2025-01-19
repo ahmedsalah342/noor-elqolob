@@ -1,0 +1,450 @@
+/* تنسيقات قسم مواقيت الصلاة */
+.prayer-times-container {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    padding: 25px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.mosque-silhouette {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background-image: url('assets/images/mosque-silhouette.png');
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: repeat-x;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.prayer-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.prayer-card {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
+    min-width: 150px;
+}
+
+.prayer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.prayer-icon {
+    font-size: 20px;
+    color: #ffd700;
+    margin-right: 8px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.prayer-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.prayer-time {
+    font-family: 'Digital-7', 'Courier New', monospace;
+    font-size: 24px;
+    color: #4fc3f7;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+    margin-top: 5px;
+}
+
+.prayer-period {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.prayer-card.active {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.prayer-card.active .prayer-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.current-time-container {
+    text-align: center;
+    margin: 20px 0 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.digital-clock-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.digital-clock {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-family: 'Digital-7', sans-serif;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 8px;
+    direction: ltr;
+}
+
+.time-format-toggle {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.time-format-toggle i {
+    color: #ffd700;
+    margin-left: 5px;
+}
+
+.time-format-toggle:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.quran-verse-container {
+    position: relative;
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 90%;
+    background: linear-gradient(135deg, 
+        rgba(76, 175, 80, 0.1) 0%,
+        rgba(156, 39, 176, 0.1) 50%,
+        rgba(3, 169, 244, 0.1) 100%
+    );
+    border-radius: 20px;
+    box-shadow: 
+        0 0 15px rgba(255, 215, 0, 0.3),
+        0 0 30px rgba(255, 215, 0, 0.2),
+        inset 0 0 15px rgba(255, 215, 0, 0.2);
+    overflow: hidden;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    animation: borderPulse 4s infinite;
+}
+
+.quran-verse {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    z-index: 2;
+}
+
+.verse-text {
+    text-align: center;
+    font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+    font-size: 24px;
+    line-height: 1.8;
+    color: #fff;
+    text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.5),
+        2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.verse-decoration {
+    font-size: 36px;
+    color: #ffd700;
+    text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.5),
+        0 0 20px rgba(255, 215, 0, 0.3);
+    animation: glowIcon 2s infinite alternate;
+    margin: 0 15px;
+}
+
+.verse-decoration.right {
+    transform: rotate(0deg);
+}
+
+.verse-decoration.left {
+    transform: rotate(180deg);
+}
+
+.islamic-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: 
+        linear-gradient(45deg, rgba(255, 215, 0, 0.1) 25%, transparent 25%) -10px 0,
+        linear-gradient(-45deg, rgba(255, 215, 0, 0.1) 25%, transparent 25%) -10px 0,
+        linear-gradient(45deg, transparent 75%, rgba(255, 215, 0, 0.1) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255, 215, 0, 0.1) 75%);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+@keyframes borderPulse {
+    0% {
+        box-shadow: 
+            0 0 15px rgba(255, 215, 0, 0.3),
+            0 0 30px rgba(255, 215, 0, 0.2),
+            inset 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 25px rgba(255, 215, 0, 0.5),
+            0 0 50px rgba(255, 215, 0, 0.3),
+            inset 0 0 25px rgba(255, 215, 0, 0.3);
+    }
+    100% {
+        box-shadow: 
+            0 0 15px rgba(255, 215, 0, 0.3),
+            0 0 30px rgba(255, 215, 0, 0.2),
+            inset 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+}
+
+@keyframes glowIcon {
+    from {
+        text-shadow: 
+            0 0 10px rgba(255, 215, 0, 0.5),
+            0 0 20px rgba(255, 215, 0, 0.3);
+        transform: scale(1);
+    }
+    to {
+        text-shadow: 
+            0 0 15px rgba(255, 215, 0, 0.7),
+            0 0 30px rgba(255, 215, 0, 0.5);
+        transform: scale(1.1);
+    }
+}
+
+.location-info {
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.location-message {
+    text-align: center;
+    margin: 20px auto;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.location-message p {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.allow-location-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.allow-location-btn:hover {
+    background: #45a049;
+}
+
+.analog-clock {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #0f0;
+    border-radius: 50%;
+    position: relative;
+    background: #000;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.analog-clock .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    background: #0f0;
+    border-radius: 5px;
+}
+
+.analog-clock .hour {
+    width: 4px;
+    height: 35%;
+    margin-left: -2px;
+}
+
+.analog-clock .minute {
+    width: 3px;
+    height: 45%;
+    margin-left: -1.5px;
+}
+
+.analog-clock .second {
+    width: 2px;
+    height: 50%;
+    margin-left: -1px;
+    background: #f00;
+}
+
+.analog-clock .center-dot {
+    width: 10px;
+    height: 10px;
+    background: #0f0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.analog-clock .number {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #0f0;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.analog-clock .n12 { top: 5px; left: 50%; transform: translateX(-50%); }
+.analog-clock .n1 { top: 10%; right: 25%; }
+.analog-clock .n2 { top: 25%; right: 10%; }
+.analog-clock .n3 { top: 50%; right: 5px; transform: translateY(-50%); }
+.analog-clock .n4 { bottom: 25%; right: 10%; }
+.analog-clock .n5 { bottom: 10%; right: 25%; }
+.analog-clock .n6 { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.analog-clock .n7 { bottom: 10%; left: 25%; }
+.analog-clock .n8 { bottom: 25%; left: 10%; }
+.analog-clock .n9 { top: 50%; left: 5px; transform: translateY(-50%); }
+.analog-clock .n10 { top: 25%; left: 10%; }
+.analog-clock .n11 { top: 10%; left: 25%; }
+
+/* تنسيقات الصلاة القادمة */
+.next-prayer-info {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.next-prayer-label {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.next-prayer-name {
+    font-size: 24px;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.next-prayer-time {
+    font-family: 'Digital-7', 'Courier New', monospace;
+    font-size: 22px;
+    color: #4fc3f7;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+}
+
+.remaining-time {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* تنسيقات معلومات الموقع */
+.location-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+}
+
+.location-details i {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* تحسينات للتجاوب مع الشاشات المختلفة */
+@media (max-width: 768px) {
+    .prayer-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .quran-verse {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prayer-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .quran-verse {
+        font-size: 18px;
+    }
+}

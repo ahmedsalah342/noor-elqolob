@@ -1,0 +1,64 @@
+/* تعديلات لإزالة شريط التمرير */
+html, body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* تعديل حجم البرواز */
+.phone-frame {
+    width: 360px;
+    height: 620px !important;
+    border: 6px solid #333 !important;
+    overflow: hidden !important;
+}
+
+/* تعديل المحتوى */
+.phone-content {
+    height: calc(100% - 55px) !important;
+    padding: 4px !important;
+    overflow: hidden !important;
+}
+
+/* تعديل الشبكة */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 6px !important;
+    padding: 6px !important;
+    height: 100%;
+}
+
+/* تعديل البطاقات */
+.card {
+    padding: 8px !important;
+    min-height: unset !important;
+    height: 100%;
+}
+
+.card i {
+    font-size: 1.4rem !important;
+    margin-bottom: 4px !important;
+}
+
+.card h2, .card h3 {
+    font-size: 0.85rem !important;
+    margin: 0 !important;
+}
+
+.card p {
+    font-size: 0.7rem !important;
+    margin: 2px 0 0 0 !important;
+}
+
+/* تعديل الهيدر */
+.header {
+    height: 40px !important;
+    padding: 0 8px !important;
+}
+
+.status-bar {
+    height: 15px !important;
+}

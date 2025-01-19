@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- دائرة خارجية -->
+    <circle cx="256" cy="256" r="240" stroke="#666666" stroke-width="2" fill="none"/>
+    
+    <!-- علامات الاتجاهات الرئيسية -->
+    <!-- شمال -->
+    <path d="M256 16V96" stroke="#666666" stroke-width="4"/>
+    <text x="256" y="80" text-anchor="middle" fill="#666666" font-size="24">N</text>
+    
+    <!-- جنوب -->
+    <path d="M256 416V496" stroke="#666666" stroke-width="4"/>
+    <text x="256" y="460" text-anchor="middle" fill="#666666" font-size="24">S</text>
+    
+    <!-- شرق -->
+    <path d="M416 256H496" stroke="#666666" stroke-width="4"/>
+    <text x="460" y="264" text-anchor="middle" fill="#666666" font-size="24">E</text>
+    
+    <!-- غرب -->
+    <path d="M16 256H96" stroke="#666666" stroke-width="4"/>
+    <text x="52" y="264" text-anchor="middle" fill="#666666" font-size="24">W</text>
+    
+    <!-- علامات الدرجات -->
+    <g id="degree-marks">
+        <!-- علامات كل 30 درجة -->
+        <g id="30-degree-marks">
+            <path d="M256 40l-4 20M256 452l-4 20" stroke="#666666" stroke-width="2"/>
+            <!-- تكرار لباقي الاتجاهات -->
+        </g>
+        
+        <!-- علامات كل 10 درجات -->
+        <g id="10-degree-marks">
+            <path d="M256 45l-2 15M256 452l-2 15" stroke="#666666" stroke-width="1"/>
+            <!-- تكرار لباقي الاتجاهات -->
+        </g>
+    </g>
+</svg>

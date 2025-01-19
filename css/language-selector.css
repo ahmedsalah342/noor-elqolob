@@ -1,0 +1,70 @@
+.language-select-container {
+    position: relative;
+    width: 200px;
+}
+
+.language-select {
+    width: 100%;
+    padding: 8px 30px 8px 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    appearance: none;
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.language-flag {
+    width: 20px;
+    height: 15px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* تنسيق القائمة المنسدلة */
+.language-select option {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* تحسين مظهر القائمة في المتصفحات المختلفة */
+.language-select::-ms-expand {
+    display: none;
+}
+
+.language-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* أيقونة السهم */
+.select-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #555;
+    pointer-events: none;
+}
+
+[dir="rtl"] .select-arrow {
+    right: auto;
+    left: 10px;
+}
+
+[dir="rtl"] .language-flag {
+    margin-right: 0;
+    margin-left: 8px;
+}

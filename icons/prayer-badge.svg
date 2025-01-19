@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Prayer Badge</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle fill="#4CAF50" cx="12" cy="12" r="10"/>
+        <path d="M12,7 C12.5522847,7 13,7.44771525 13,8 L13,11.5857864 L15.2928932,13.8786797 C15.6834175,14.269204 15.6834175,14.902369 15.2928932,15.2928932 C14.902369,15.6834175 14.269204,15.6834175 13.8786797,15.2928932 L11.2928932,12.7071068 C11.1053568,12.5195704 11,12.2652165 11,12 L11,8 C11,7.44771525 11.4477153,7 12,7 Z" fill="#FFFFFF"/>
+    </g>
+</svg>

@@ -1,0 +1,116 @@
+/* الساعة الرقمية */
+.digital-clock {
+    background-color: #000;
+    color: #f00;
+    font-family: 'Digital-7', monospace;
+    font-size: 2.5em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px auto;
+    width: fit-content;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    direction: ltr;
+}
+
+/* الساعة التناظرية */
+.analog-clock {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #0f0;
+    border-radius: 50%;
+    position: relative;
+    margin: 20px auto;
+    background: #000;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.analog-clock .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    background: #0f0;
+    border-radius: 5px;
+}
+
+.analog-clock .hour {
+    width: 4px;
+    height: 25%;
+    background: #0f0;
+}
+
+.analog-clock .minute {
+    width: 3px;
+    height: 35%;
+    background: #0f0;
+}
+
+.analog-clock .second {
+    width: 2px;
+    height: 40%;
+    background: #f00;
+}
+
+.analog-clock .center-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #0f0;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.analog-clock .number {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-origin: 50%;
+    font-family: 'Noto Naskh Arabic', serif;
+    color: #0f0;
+    font-size: 1em;
+}
+
+.analog-clock .number span {
+    display: inline-block;
+    transform-origin: center;
+}
+
+.analog-clock .number.n1 { transform: rotate(30deg); }
+.analog-clock .number.n1 span { transform: rotate(-30deg); }
+
+.analog-clock .number.n2 { transform: rotate(60deg); }
+.analog-clock .number.n2 span { transform: rotate(-60deg); }
+
+.analog-clock .number.n3 { transform: rotate(90deg); }
+.analog-clock .number.n3 span { transform: rotate(-90deg); }
+
+.analog-clock .number.n4 { transform: rotate(120deg); }
+.analog-clock .number.n4 span { transform: rotate(-120deg); }
+
+.analog-clock .number.n5 { transform: rotate(150deg); }
+.analog-clock .number.n5 span { transform: rotate(-150deg); }
+
+.analog-clock .number.n6 { transform: rotate(180deg); }
+.analog-clock .number.n6 span { transform: rotate(-180deg); }
+
+.analog-clock .number.n7 { transform: rotate(210deg); }
+.analog-clock .number.n7 span { transform: rotate(-210deg); }
+
+.analog-clock .number.n8 { transform: rotate(240deg); }
+.analog-clock .number.n8 span { transform: rotate(-240deg); }
+
+.analog-clock .number.n9 { transform: rotate(270deg); }
+.analog-clock .number.n9 span { transform: rotate(-270deg); }
+
+.analog-clock .number.n10 { transform: rotate(300deg); }
+.analog-clock .number.n10 span { transform: rotate(-300deg); }
+
+.analog-clock .number.n11 { transform: rotate(330deg); }
+.analog-clock .number.n11 span { transform: rotate(-330deg); }
+
+.analog-clock .number.n12 { transform: rotate(0deg); }
+.analog-clock .number.n12 span { transform: rotate(0deg); }

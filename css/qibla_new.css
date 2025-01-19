@@ -1,0 +1,569 @@
+/* قسم القبلة - التصميم الجديد */
+.qibla-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    max-height: 100vh;
+    background: linear-gradient(135deg, #f6f8ff 0%, #e9f0ff 100%);
+    padding: 15px;
+    background-image: 
+        linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(233,240,255,0.9) 100%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><path fill="%23e1e6f9" d="M20,0h40l20,20v40l-20,20h-40l-20-20v-40z"/></svg>');
+    background-size: cover, 60px 60px;
+    background-position: center;
+}
+
+.qibla-container {
+    width: 280px;
+    background: linear-gradient(145deg, #ffffff, #f8f9ff);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 1px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.qibla-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23f1f4ff" d="M50,0 L100,50 L50,100 L0,50z"/></svg>');
+    background-size: 20px 20px;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.compass-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    margin-bottom: 15px;
+}
+
+.compass-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.compass-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #4a90e2, #357abd);
+    box-shadow: 
+        12px 12px 24px rgba(0, 0, 0, 0.15),
+        -6px -6px 12px rgba(255, 255, 255, 0.8),
+        inset 1px 1px 1px rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.compass-ring::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23ffffff" d="M50,20 L80,50 L50,80 L20,50z M50,0 L100,50 L50,100 L0,50z" opacity="0.1"/></svg>');
+    background-size: 30px 30px;
+    animation: rotatePattern 60s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes rotatePattern {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.compass-face {
+    width: 88%;
+    height: 88%;
+    background: linear-gradient(135deg, #ffffff, #f0f4ff);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.compass-face::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%234a90e2" d="M50,48 L52,50 L50,52 L48,50z" opacity="0.2"/></svg>');
+    background-size: 20px 20px;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.compass-markings {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.mark-n, .mark-s, .mark-e, .mark-w {
+    position: absolute;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #4a90e2;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.mark-n {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #e53935;
+    font-size: 18px;
+}
+
+.mark-s {
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mark-e {
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mark-w {
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.degree-marks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.degree-marks::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%234a90e2" d="M50,0 L51,4 L49,4z M50,96 L51,100 L49,100z" opacity="0.3"/></svg>');
+    background-size: 20px 20px;
+}
+
+.compass-arrow {
+    position: absolute;
+    width: 4px;
+    height: 45%;
+    background: linear-gradient(to bottom, #e53935 50%, #424242 50%);
+    top: 5%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.compass-arrow::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid #e53935;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.kaaba-marker {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4a90e2;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.kaaba-marker i {
+    font-size: 18px;
+    color: white;
+}
+
+.kaaba-marker:hover {
+    transform: scale(1.1);
+}
+
+.qibla-info {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.qibla-angle-display {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    box-shadow: 
+        0 4px 8px rgba(74, 144, 226, 0.2),
+        0 1px 3px rgba(74, 144, 226, 0.1);
+}
+
+.qibla-instructions {
+    width: 100%;
+    margin-bottom: 1rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 0.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    animation: instruction-appear 0.5s ease-out;
+}
+
+.instruction-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+.instruction-step:last-child {
+    margin-bottom: 0;
+}
+
+.instruction-step i {
+    margin-left: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.qibla-status {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+#qibla-status-message {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: var(--input-bg);
+    border-radius: 8px;
+}
+
+.browser-warning {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    display: none; /* سيتم إظهارها عبر JavaScript */
+}
+
+.warning-icon {
+    margin-bottom: 1rem;
+}
+
+.warning-icon i {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.warning-text {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.warning-subtext {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* الوضع الليلي */
+[data-theme="dark"] .qibla-content {
+    background: linear-gradient(135deg, #1a1f35 0%, #2a3149 100%);
+    background-image: 
+        linear-gradient(135deg, rgba(26,31,53,0.9) 0%, rgba(42,49,73,0.95) 100%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><path fill="%23252a3d" d="M20,0h40l20,20v40l-20,20h-40l-20-20v-40z"/></svg>');
+}
+
+[data-theme="dark"] .qibla-container {
+    background: linear-gradient(145deg, #2d3447, #1f2537);
+}
+
+[data-theme="dark"] .compass-ring {
+    background: linear-gradient(145deg, #3d84d4, #2d6cb3);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.3),
+        -4px -4px 8px rgba(255, 255, 255, 0.05),
+        inset 1px 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .compass-face {
+    background: linear-gradient(135deg, #2a3149, #1f2537);
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .mark-n {
+    color: #ff5252;
+    text-shadow: 0 0 8px rgba(255, 82, 82, 0.4);
+}
+
+[data-theme="dark"] .mark-s,
+[data-theme="dark"] .mark-e,
+[data-theme="dark"] .mark-w {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .degree-marks::before {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .kaaba-marker {
+    background: #3d84d4;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .kaaba-marker i {
+    color: #fff;
+}
+
+[data-theme="dark"] .qibla-angle-display {
+    background: linear-gradient(135deg, #3d84d4, #2d6cb3);
+}
+
+[data-theme="dark"] .browser-warning {
+    background: #2d2d2d;
+}
+
+/* تحسينات الأداء */
+.compass-container, .compass-ring, .compass-arrow {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* تأثيرات حركية */
+@keyframes compass-appear {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.compass-container {
+    animation: compass-appear 0.5s ease-out;
+}
+
+@keyframes instruction-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes warning-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.browser-warning.show {
+    display: block;
+    animation: warning-appear 0.5s ease-out;
+}
+
+/* إخفاء محتوى القبلة على المتصفح */
+.qibla-content-mobile {
+    display: block;
+}
+
+@media (max-height: 600px) {
+    .qibla-container {
+        padding: 0.5rem;
+    }
+    
+    .compass-wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .qibla-info {
+        margin-top: 0.3rem;
+    }
+    
+    .qibla-angle-display {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .qibla-instructions {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .instruction-step {
+        font-size: 0.75rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .instruction-step i {
+        font-size: 0.9rem;
+    }
+
+    #qibla-status-message {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .browser-warning {
+        padding: 1rem;
+    }
+
+    .warning-icon i {
+        font-size: 2.5rem;
+    }
+
+    .warning-text {
+        font-size: 1rem;
+    }
+
+    .warning-subtext {
+        font-size: 0.8rem;
+    }
+}
+
+/* زر تبديل نظام الساعة */
+.time-format-toggle {
+    background: var(--accent-color, #4CAF50);
+    color: white;
+    border: 2px solid var(--accent-color, #4CAF50);
+    border-radius: 8px;
+    width: 40px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    font-weight: bold;
+}
+
+.time-format-toggle:hover {
+    background: transparent;
+    color: var(--accent-color, #4CAF50);
+}
+
+.time-format-toggle .format-text {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* الوضع الليلي */
+[data-theme="dark"] .time-format-toggle {
+    background: var(--accent-color-dark, #66BB6A);
+    border-color: var(--accent-color-dark, #66BB6A);
+}
+
+[data-theme="dark"] .time-format-toggle:hover {
+    background: transparent;
+    color: var(--accent-color-dark, #66BB6A);
+}
+
+/* حاوية الساعة الرقمية */
+.digital-clock-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.digital-clock {
+    background-color: #000;
+    color: #f00;
+    font-family: 'Digital-7', monospace;
+    font-size: 2.5em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#hours, #minutes {
+    color: #f00;
+    min-width: 35px;
+    text-align: center;
+}
+
+#seconds {
+    color: rgba(255, 0, 0, 0.7);
+    min-width: 25px;
+    text-align: center;
+}
+
+#period {
+    color: #f00;
+    font-size: 0.6em;
+    margin-right: 5px;
+    min-width: 20px;
+    text-align: right;
+}

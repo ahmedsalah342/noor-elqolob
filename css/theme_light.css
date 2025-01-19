@@ -1,0 +1,86 @@
+/* متغيرات الألوان */
+:root {
+    --primary-light: #9C27B0;
+    --secondary-light: #E1BEE7;
+    --background-light: #F3E5F5;
+    --text-light: #4A4A4A;
+}
+
+/* الوضع الليلي */
+body.dark-mode {
+    background-color: #2D1B36 !important;
+}
+
+body.dark-mode .phone-frame {
+    background-color: #3C2747 !important;
+    border-color: #2D1B36 !important;
+}
+
+body.dark-mode .header {
+    background-color: #9C27B0 !important;
+    color: white !important;
+}
+
+body.dark-mode .card {
+    background-color: #4A2B5A !important;
+    color: #E1BEE7 !important;
+}
+
+body.dark-mode .card i {
+    color: #CE93D8 !important;
+}
+
+body.dark-mode .card h2,
+body.dark-mode .card h3 {
+    color: #E1BEE7 !important;
+}
+
+body.dark-mode .card p {
+    color: #B39DDB !important;
+}
+
+/* تنسيقات الوضع العادي */
+.phone-frame {
+    background-color: #FFF !important;
+}
+
+.header {
+    background-color: #9C27B0 !important;
+    color: white !important;
+}
+
+.card {
+    background-color: #F3E5F5 !important;
+    color: #4A4A4A !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.card i {
+    color: #9C27B0 !important;
+}
+
+.card h2,
+.card h3 {
+    color: #4A4A4A !important;
+}
+
+.card p {
+    color: #666666 !important;
+}
+
+/* تأثيرات إضافية */
+.card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+}
+
+/* تنسيقات النوافذ المنبثقة */
+body.dark-mode .modal-content {
+    background-color: #3C2747 !important;
+    color: #E1BEE7 !important;
+}
+
+.modal-content {
+    background-color: #FFF !important;
+    color: #4A4A4A !important;
+}

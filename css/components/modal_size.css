@@ -1,0 +1,50 @@
+/* تنسيقات حجم النافذة المنبثقة */
+.modal {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.modal-content {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 600px !important;
+    max-height: 800px !important;
+    background: var(--bg-color) !important;
+    padding: 20px !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.modal-content h3 {
+    font-size: 1.2em !important;
+    margin-bottom: 15px !important;
+    color: var(--primary-color) !important;
+}
+
+.modal-content p {
+    font-size: 1em !important;
+    line-height: 1.6 !important;
+    margin-bottom: 10px !important;
+}
+
+@media screen and (max-width: 380px) {
+    .modal-content {
+        padding: 15px !important;
+    }
+    
+    .modal-content h3 {
+        font-size: 1.1em !important;
+    }
+    
+    .modal-content p {
+        font-size: 0.95em !important;
+    }
+}

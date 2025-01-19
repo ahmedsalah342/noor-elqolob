@@ -1,0 +1,156 @@
+.prophet-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f5f7fa 100%);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.prophet-card:hover {
+    transform: translateY(-5px);
+}
+
+.prophet-card h4 {
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(45deg, #1abc9c, #3498db);
+    color: white;
+    border-radius: 8px;
+}
+
+.prophet-info {
+    margin: 15px 0;
+}
+
+.prophet-info h5 {
+    color: #34495e;
+    font-size: 1.2em;
+    margin: 10px 0;
+    border-right: 4px solid #3498db;
+    padding-right: 10px;
+}
+
+.prophet-info p {
+    margin: 10px 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.prophet-story {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.prophet-story h5 {
+    color: #e67e22;
+    margin-bottom: 10px;
+}
+
+.prophet-lessons {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #edf7ff;
+    border-radius: 8px;
+}
+
+.prophet-lessons h5 {
+    color: #2980b9;
+    margin-bottom: 10px;
+}
+
+.prophet-lessons ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.prophet-lessons li {
+    margin: 5px 0;
+    padding-right: 20px;
+    position: relative;
+}
+
+.prophet-lessons li:before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    right: 0;
+}
+
+/* تنسيق للصحابة */
+.companion-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f5f7fa 100%);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.companion-card:hover {
+    transform: translateY(-5px);
+}
+
+.companion-card h4 {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    border-radius: 8px;
+}
+
+.companion-info {
+    margin: 15px 0;
+}
+
+.companion-info h5 {
+    color: #34495e;
+    font-size: 1.2em;
+    margin: 10px 0;
+    border-right: 4px solid #27ae60;
+    padding-right: 10px;
+}
+
+.companion-story {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.companion-achievements {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #efffef;
+    border-radius: 8px;
+}
+
+.companion-achievements h5 {
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+.companion-achievements ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.companion-achievements li {
+    margin: 5px 0;
+    padding-right: 20px;
+    position: relative;
+}
+
+.companion-achievements li:before {
+    content: "•";
+    color: #27ae60;
+    position: absolute;
+    right: 0;
+}

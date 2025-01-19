@@ -1,0 +1,283 @@
+.qibla-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../images/kaaba-bg.jpg') center/cover;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.qibla-verse {
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    color: #9c27b0;
+    margin: 15px 0;
+    padding: 12px 20px;
+    position: relative;
+    display: inline-block;
+    line-height: 1.8;
+    text-shadow: none;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(156, 39, 176, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+}
+
+.quran-bracket {
+    font-family: 'Traditional Arabic', 'Amiri', serif;
+    color: #9c27b0;
+    opacity: 0.8;
+    font-size: 20px;
+}
+
+.qibla-container {
+    width: 260px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 10px auto;
+    backdrop-filter: blur(5px);
+}
+
+.compass-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    margin-bottom: 15px;
+}
+
+.compass-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.compass-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.2),
+        -4px -4px 8px rgba(255, 255, 255, 0.8),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.8),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #9c27b0;
+}
+
+.compass-face {
+    width: 88%;
+    height: 88%;
+    background: linear-gradient(145deg, #ffffff, #f8f8f8);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.mark-n, .mark-s, .mark-e, .mark-w {
+    position: absolute;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    color: #9c27b0;
+}
+
+.mark-n {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #e53935;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.mark-s {
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mark-e {
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mark-w {
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.kaaba-marker {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #9c27b0;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.kaaba-marker i {
+    font-size: 16px;
+    color: #fff;
+}
+
+.kaaba-marker:hover {
+    transform: scale(1.1);
+    background: #7b1fa2;
+}
+
+.qibla-info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.qibla-angle-display {
+    display: inline-block;
+    padding: 8px 15px;
+    background: rgba(156, 39, 176, 0.1);
+    border-radius: 8px;
+    color: #9c27b0;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(156, 39, 176, 0.2);
+}
+
+.compass-arrow {
+    position: absolute;
+    width: 4px;
+    height: 45%;
+    background: linear-gradient(to bottom, 
+        #e53935 0%, 
+        #e53935 45%, 
+        transparent 45%,
+        transparent 55%,
+        #9c27b0 55%, 
+        #9c27b0 100%
+    );
+    top: 5%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.compass-arrow::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: #e53935;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.compass-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: #9c27b0;
+    clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .qibla-container {
+    background: rgba(45, 45, 45, 0.95);
+}
+
+[data-theme="dark"] .compass-ring {
+    background: linear-gradient(145deg, #333, #2a2a2a);
+    border-color: #9c27b0;
+    box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.3),
+        -4px -4px 8px rgba(255, 255, 255, 0.05),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.05),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .compass-face {
+    background: linear-gradient(145deg, #2d2d2d, #252525);
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.05);
+    border-color: rgba(156, 39, 176, 0.5);
+}
+
+[data-theme="dark"] .mark-n {
+    color: #ff5252;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .mark-s,
+[data-theme="dark"] .mark-e,
+[data-theme="dark"] .mark-w {
+    color: #bb86fc;
+}
+
+[data-theme="dark"] .qibla-angle-display {
+    background: rgba(156, 39, 176, 0.15);
+    color: #bb86fc;
+    border-color: rgba(156, 39, 176, 0.3);
+}
+
+[data-theme="dark"] .compass-arrow {
+    background: linear-gradient(to bottom, 
+        #ff5252 0%, 
+        #ff5252 45%, 
+        transparent 45%,
+        transparent 55%,
+        #bb86fc 55%, 
+        #bb86fc 100%
+    );
+}
+
+[data-theme="dark"] .compass-arrow::before {
+    background: #ff5252;
+}
+
+[data-theme="dark"] .compass-arrow::after {
+    background: #bb86fc;
+}
+
+[data-theme="dark"] .qibla-verse {
+    background: rgba(255, 255, 255, 0.9);
+    color: #7b1fa2;
+    border-color: rgba(156, 39, 176, 0.5);
+}
+
+[data-theme="dark"] .quran-bracket {
+    color: #7b1fa2;
+}

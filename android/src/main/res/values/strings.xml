@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">زاد المسلم</string>
+    <string name="title_activity_main">زاد المسلم</string>
+    <string name="package_name">com.zadmuslim.app</string>
+    <string name="custom_url_scheme">com.zadmuslim.app</string>
+    
+    <!-- رسائل الإشعارات -->
+    <string name="prayer_notification_title">حان وقت الصلاة</string>
+    <string name="prayer_notification_channel_name">مواقيت الصلاة</string>
+    <string name="prayer_notification_channel_description">إشعارات مواقيت الصلاة</string>
+</resources>

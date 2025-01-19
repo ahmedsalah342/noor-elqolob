@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار نظام اللغات</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .language-selector {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+        .content-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        h1, h2, h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .test-elements > div {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 data-translate="test_title">اختبار نظام اللغات</h1>
+        
+        <div class="language-selector">
+            <label for="language-select" data-translate="select_language">اختر اللغة:</label>
+            <select id="language-select" onchange="changeLanguage(this.value)">
+                <option value="ar" data-translate="lang_ar">العربية</option>
+                <option value="en" data-translate="lang_en">English</option>
+                <option value="tr" data-translate="lang_tr">Türkçe</option>
+                <option value="ur" data-translate="lang_ur">اردو</option>
+                <option value="id" data-translate="lang_id">Bahasa Indonesia</option>
+                <option value="fr" data-translate="lang_fr">Français</option>
+            </select>
+        </div>
+
+        <div class="test-elements">
+            <div>
+                <h2 data-translate="app_sections">أقسام التطبيق</h2>
+                <div data-translate="prayer_times">مواقيت الصلاة</div>
+                <div data-translate="qibla">اتجاه القبلة</div>
+                <div data-translate="settings">الإعدادات</div>
+            </div>
+
+            <div>
+                <h2 data-translate="prayer_names">أسماء الصلوات</h2>
+                <div data-translate="fajr">الفجر</div>
+                <div data-translate="dhuhr">الظهر</div>
+                <div data-translate="asr">العصر</div>
+                <div data-translate="maghrib">المغرب</div>
+                <div data-translate="isha">العشاء</div>
+            </div>
+
+            <div>
+                <h2 data-translate="app_settings">إعدادات التطبيق</h2>
+                <div data-translate="notifications">التنبيهات</div>
+                <div data-translate="brightness">السطوع</div>
+                <div data-translate="font">الخط</div>
+                <div data-translate="language">اللغة</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تخزين اللغة الحالية
+        let currentLanguage = localStorage.getItem('testLanguage') || 'ar';
+
+        // تحميل ملف اللغة
+        async function loadLanguageFile(lang) {
+            try {
+                const response = await fetch(`languages/${lang}.json`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const translations = await response.json();
+                return translations;
+            } catch (error) {
+                console.error('Error loading language file:', error);
+                return null;
+            }
+        }
+
+        // تغيير اللغة
+        async function changeLanguage(lang) {
+            console.log('Changing language to:', lang);
+            
+            // تحميل ملف اللغة
+            const translations = await loadLanguageFile(lang);
+            if (!translations) {
+                console.error('Failed to load translations for:', lang);
+                return;
+            }
+
+            // تحديث اتجاه الصفحة
+            document.documentElement.dir = ['ar', 'ur'].includes(lang) ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+
+            // تحديث النصوص
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[key]) {
+                    element.textContent = translations[key];
+                }
+            });
+
+            // حفظ اللغة المختارة
+            localStorage.setItem('testLanguage', lang);
+            currentLanguage = lang;
+
+            console.log('Language changed successfully');
+        }
+
+        // تحميل اللغة عند بدء التطبيق
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Loading initial language...');
+            changeLanguage(currentLanguage);
+        });
+    </script>
+</body>
+</html>

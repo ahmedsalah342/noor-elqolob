@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <title>نور القلوب</title>
+    <!-- إضافة الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Tajawal:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Reem+Kufi:wght@400;700&family=Lateef&family=Scheherazade+New:wght@400;700&family=Harmattan:wght@400;700&family=Markazi+Text:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- المتغيرات والألوان -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/darkmode.css">
+    <link rel="stylesheet" href="css/frame.css">
+    
+    <!-- الأنماط الأساسية -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adhan-button.css">
+    <link rel="stylesheet" href="css/modal_styles.css">
+    <link rel="stylesheet" href="css/modal_fix.css">
+    
+    <!-- التصحيحات -->
+    <link rel="stylesheet" href="css/frame_fix.css">
+    <link rel="stylesheet" href="css/theme_light.css">
+    
+    <!-- أنماط المكونات -->
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/notification_settings.css">
+    <link rel="stylesheet" href="css/prayer_styles.css">
+    <link rel="stylesheet" href="css/qibla.css">
+    <link rel="stylesheet" href="css/language-selector.css">
+    <link rel="stylesheet" href="css/time_styles.css">
+    
+    <!-- أنماط المكونات -->
+    <link rel="stylesheet" href="css/clock.css">
+    <link rel="stylesheet" href="css/contact_styles.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- ملفات JavaScript -->
+    <script src="js/app.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/prayer.js" defer></script>
+    <script src="js/qibla.js" defer></script>
+    <script src="js/settings.js" defer></script>
+    <script src="js/prayer_times.js" defer></script>
+    <script src="js/audio_manager.js" defer></script>
+    <script src="js/prayer_settings.js" defer></script>
+    <script src="js/appearance_settings.js" defer></script>
+    <script src="js/language.js" defer></script>
+    <script src="js/language-manager.js" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/clock.js" defer></script>
+    <script src="js/clocks.js" defer></script>
+    <script src="js/notifications.js" defer></script>
+    <script src="js/prayer-notifications.js" defer></script>
+    <script src="js/prayer-alert.js" defer></script>
+
+    <style>
+        .digital-clock {
+            background-color: black;
+            color: red;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 24px;
+            font-family: monospace;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container" data-theme="theme1">
+        <header class="header">
+            <button id="darkModeBtn" onclick="toggleDarkMode()">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="menu-container">
+                <button class="menu-button" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#" onclick="showModal('settings')"><i class="fas fa-cog"></i> الإعدادات</a>
+                    <a href="#" onclick="showModal('about')"><i class="fas fa-info-circle"></i> من نحن</a>
+                    <a href="#" onclick="showModal('contact')"><i class="fas fa-envelope"></i> اتصل بنا</a>
+                </div>
+            </div>
+            <h1>نور القلوب</h1>
+        </header>
+        <div class="status-bar">
+            <div class="notch"></div>
+        </div>
+        <div class="phone-content">
+            <div class="grid-container">
+                <div class="card" data-modal="ruqya-sunnah-modal" onclick="showModal('ruqya-sunnah')">
+                    <i class="fas fa-star-and-crescent"></i>
+                    <h2>الرقية بالسنة</h2>
+                </div>
+                
+                <div class="card" data-modal="ruqya-quran-modal" onclick="showModal('ruqya-quran')">
+                    <i class="fas fa-book-open"></i>
+                    <h2>الرقية بالقرآن</h2>
+                </div>
+                
+                <div class="card" data-modal="mulk-modal" onclick="showModal('mulk')">
+                    <i class="fas fa-crown"></i>
+                    <h2>سورة الملك</h2>
+                </div>
+                
+                <div class="card" data-modal="prophets-modal" onclick="showModal('prophets')">
+                    <i class="fas fa-kaaba"></i>
+                    <h2>قصص الأنبياء</h2>
+                </div>
+                
+                <div class="card" data-modal="seerah-modal" onclick="showModal('seerah')">
+                    <i class="fas fa-mosque"></i>
+                    <h2>السيرة النبوية</h2>
+                </div>
+                
+                <div class="card" data-modal="kahf-modal" onclick="showModal('kahf')">
+                    <i class="fas fa-book"></i>
+                    <h2>سورة الكهف</h2>
+                </div>
+                
+                <div class="card" data-modal="scholars-modal" onclick="showModal('scholars')">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h2>أعلام الأمة</h2>
+                </div>
+                
+                <div class="card" data-modal="companions-modal" onclick="showModal('companions')">
+                    <i class="fas fa-users"></i>
+                    <h2>قصص الصحابة</h2>
+                </div>
+                
+                <div class="card" data-modal="qibla-compass-modal" onclick="showModal('qibla-compass')">
+                    <i class="fas fa-compass"></i>
+                    <h2>اتجاه القبلة</h2>
+                </div>
+                
+                <div class="card" data-modal="prayer-times-modal" onclick="showModal('prayer-times')">
+                    <i class="fas fa-clock"></i>
+                    <h2>مواقيت الصلاة</h2>
+                </div>
+            </div>
+
+            <!-- نافذة الرقية بالقرآن -->
+            <div id="ruqya-quran-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('ruqya-quran')">×</button>
+                    <div class="modal-title">
+                        <h3>الرقية الشرعية</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div class="ruqyah-intro">
+                        <h2>الرقية الشرعية</h2>
+                        <p class="intro-text">
+                            الرقية الشرعية هي العلاج بالقرآن الكريم والأدعية المأثورة عن النبي ﷺ. وهي سنة نبوية ثابتة عن رسول الله ﷺ.
+                        </p>
+                    </div>
+
+                    <div class="ruqyah-conditions">
+                        <h3>شروط الرقية الشرعية</h3>
+                        <ul class="conditions-list">
+                            <li>أن تكون بكلام الله تعالى أو بأسمائه وصفاته</li>
+                            <li>أن تكون باللسان العربي أو بما يُعرف معناه</li>
+                            <li>أن يعتقد أن الرقية لا تؤثر بذاتها بل بتقدير الله تعالى</li>
+                            <li>أن تكون خالية من الشرك والبدع والمخالفات الشرعية</li>
+                        </ul>
+                    </div>
+
+                    <div class="ruqyah-types">
+                        <h3>أنواع الرقية الشرعية</h3>
+                        <div class="type-item">
+                            <h4>1. رقية الوقاية</h4>
+                            <p>تستخدم للحماية من العين والحسد والسحر قبل وقوعها</p>
+                        </div>
+                        <div class="type-item">
+                            <h4>2. رقية العلاج</h4>
+                            <p>تستخدم لعلاج الأمراض الروحية والنفسية والجسدية بعد وقوعها</p>
+                        </div>
+                    </div>
+
+                    <div class="ruqyah-verses">
+                        <h3>آيات الرقية الشرعية</h3>
+                        <div class="verse-section">
+                            <h4>سورة الفاتحة</h4>
+                            <div class="quran-text">
+                                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴿١﴾
+                                
+                                الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾
+                                
+                                الرَّحْمَٰنِ الرَّحِيمِ ﴿٣﴾
+                                
+                                مَالِكِ يَوْمِ الدِّينِ ﴿٤﴾
+                                
+                                إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾
+                                
+                                اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴿٦﴾
+                                
+                                صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴿٧﴾
+                            </div>
+                        </div>
+
+                        <div class="verse-section">
+                            <h4>آية الكرسي</h4>
+                            <div class="quran-text">
+                                اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ ﴿٢٥٥﴾
+                            </div>
+                        </div>
+
+                        <div class="verse-section">
+                            <h4>المعوذات</h4>
+                            <div class="quran-text">
+                                <h5>سورة الإخلاص</h5>
+                                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                                
+                                قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾
+                                
+                                اللَّهُ الصَّمَدُ ﴿٢﴾
+                                
+                                لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾
+                                
+                                وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾
+
+                                <h5>سورة الفلق</h5>
+                                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                                
+                                قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾
+                                
+                                مِنْ شَرِّ مَا خَلَقَ ﴿٢﴾
+                                
+                                وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾
+                                
+                                وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾
+                                
+                                وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ ﴿٥﴾
+
+                                <h5>سورة الناس</h5>
+                                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                                
+                                قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾
+                                
+                                مَلِكِ النَّاسِ ﴿٢﴾
+                                
+                                إِلَٰهِ النَّاسِ ﴿٣﴾
+                                
+                                مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾
+                                
+                                الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾
+                                
+                                مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ruqyah-duas">
+                        <h3>أدعية الرقية المأثورة</h3>
+                        <div class="dua-item">
+                            <h4>دعاء الشفاء</h4>
+                            <p class="arabic-text">اللَّهُمَّ رَبَّ النَّاسِ، أَذْهِبِ الْبَأْسَ، اشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاؤُكَ، شِفَاءً لَا يُغَادِرُ سَقَمًا</p>
+                            <p class="dua-meaning">معناه: يا الله رب الناس، أزل المرض، واشفِ أنت الشافي، لا شفاء إلا شفاؤك، شفاءً لا يترك مرضاً</p>
+                        </div>
+                        <div class="dua-item">
+                            <h4>رقية العين</h4>
+                            <p class="arabic-text">بِسْمِ اللَّهِ أَرْقِيكَ، مِنْ كُلِّ شَيْءٍ يُؤْذِيكَ، مِنْ شَرِّ كُلِّ نَفْسٍ أَوْ عَيْنِ حَاسِدٍ، اللَّهُ يَشْفِيكَ، بِسْمِ اللَّهِ أَرْقِيكَ</p>
+                        </div>
+                    </div>
+
+                    <div class="ruqyah-instructions">
+                        <h3>كيفية الرقية الشرعية</h3>
+                        <ol class="instructions-list">
+                            <li>الوضوء والطهارة قبل البدء</li>
+                            <li>اختيار مكان طاهر وهادئ</li>
+                            <li>البدء بالاستعاذة والبسملة</li>
+                            <li>قراءة الفاتحة وآية الكرسي</li>
+                            <li>قراءة المعوذات ثلاث مرات</li>
+                            <li>النفث بعد القراءة (نفخ خفيف بدون ريق)</li>
+                            <li>المسح على موضع الألم إن وجد</li>
+                        </ol>
+                    </div>
+
+                    <div class="ruqyah-warnings">
+                        <h3>تنبيهات مهمة</h3>
+                        <ul class="warnings-list">
+                            <li>تجنب الذهاب للسحرة والمشعوذين</li>
+                            <li>عدم استخدام التمائم والأحجبة</li>
+                            <li>الابتعاد عن الرقى المبتدعة والمخالفة للشرع</li>
+                            <li>التوكل على الله وحده في الشفاء</li>
+                            <li>الحرص على الأذكار اليومية للوقاية</li>
+                        </ul>
+                    </div>
+
+                    <div class="prevention-tips">
+                        <h3>نصائح للوقاية</h3>
+                        <ul class="tips-list">
+                            <li>المحافظة على الصلوات الخمس</li>
+                            <li>قراءة المعوذات صباحاً ومساءً</li>
+                            <li>قراءة آية الكرسي بعد كل صلاة</li>
+                            <li>الإكثار من ذكر الله تعالى</li>
+                            <li>تجنب المعاصي والذنوب</li>
+                            <li>الصدقة والإحسان للآخرين</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- نافذة الرقية بالسنة -->
+            <div id="ruqya-sunnah-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('ruqya-sunnah')">×</button>
+                    <div class="modal-title">
+                        <h3>الرقية بالسنة</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <h2 class="ruqya-title">الأدعية النبوية للرقية</h2>
+                    
+                    <div class="ruqya-info">
+                        الرقية بالسنة هي الأدعية والأذكار الثابتة عن النبي ﷺ
+                        والتي كان يرقي بها نفسه وأصحابه، وهي من أنفع ما جُرِّب للشفاء بإذن الله
+                    </div>
+
+                    <h3 class="surah-title">١- رقية جبريل عليه السلام</h3>
+                    <div class="arabic-text">
+                        بِسْمِ اللَّهِ أَرْقِيكَ، مِنْ كُلِّ شَيْءٍ يُؤْذِيكَ،
+                        مِنْ شَرِّ كُلِّ نَفْسٍ أَوْ عَيْنِ حَاسِدٍ،
+                        اللَّهُ يَشْفِيكَ، بِسْمِ اللَّهِ أَرْقِيكَ
+                    </div>
+
+                    <h3 class="benefits-title">فضائلها وفوائدها:</h3>
+                    <ul class="benefits-list">
+                        <li>رقية جبريل للنبي ﷺ عندما اشتكى</li>
+                        <li>نافعة من العين والحسد والسحر</li>
+                        <li>تكرر ثلاث مرات في كل رقية</li>
+                    </ul>
+
+                    <h3 class="surah-title">٢- دعاء الشفاء المأثور</h3>
+                    <div class="arabic-text">
+                        اللَّهُمَّ رَبَّ النَّاسِ، أَذْهِبِ الْبَأْسَ،
+                        اشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاؤُكَ،
+                        شِفَاءً لَا يُغَادِرُ سَقَمًا
+                    </div>
+
+                    <h3 class="benefits-title">فضائلها وفوائدها:</h3>
+                    <ul class="benefits-list">
+                        <li>كان النبي ﷺ يدعو به للمريض</li>
+                        <li>يجمع بين التوحيد وطلب الشفاء</li>
+                        <li>من أجمع أدعية الشفاء</li>
+                    </ul>
+
+                    <h3 class="surah-title">٣- رقية المسح على موضع الألم</h3>
+                    <div class="arabic-text">
+                        بِسْمِ اللَّهِ (ثلاثاً)
+                        أَعُوذُ بِعِزَّةِ اللَّهِ وَقُدْرَتِهِ مِنْ شَرِّ مَا أَجِدُ وَأُحَاذِرُ
+                        (سبع مرات)
+                    </div>
+
+                    <h3 class="benefits-title">طريقة الرقية:</h3>
+                    <ul class="benefits-list">
+                        <li>يضع يده على موضع الألم</li>
+                        <li>يقول: بسم الله (ثلاثاً)</li>
+                        <li>يكرر الدعاء سبع مرات مع المسح</li>
+                    </ul>
+
+                    <h3 class="surah-title">٤- رقية الفزع والأرق</h3>
+                    <div class="arabic-text">
+                        أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ غَضَبِهِ وَعِقَابِهِ،
+                        وَشَرِّ عِبَادِهِ، وَمِنْ هَمَزَاتِ الشَّيَاطِينِ،
+                        وَأَنْ يَحْضُرُونِ
+                    </div>
+
+                    <h3 class="benefits-title">فوائدها:</h3>
+                    <ul class="benefits-list">
+                        <li>تقال عند النوم للحماية</li>
+                        <li>نافعة من الكوابيس والفزع</li>
+                        <li>حرز من الشياطين والجن</li>
+                    </ul>
+
+                    <div class="ruqya-info">
+                        ملاحظات مهمة:
+                        • يستحب الوضوء قبل الرقية
+                        • النفث مع القراءة سنة نبوية
+                        • الإخلاص والثقة بالله أساس الشفاء
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة قصص الأنبياء -->
+            <div id="prophets-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('prophets')">×</button>
+                    <div class="modal-title">
+                        <h3>قصص الأنبياء</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div class="prophets-section">
+                        <h3>قصص الأنبياء عليهم السلام</h3>
+                        
+                        <div class="prophet-card">
+                            <h4>آدم عليه السلام</h4>
+                            <div class="prophet-info">
+                                <h5>نشأته</h5>
+                                <p>خلقه الله بيده من طين ونفخ فيه من روحه. علمه الأسماء كلها وأسجد له الملائكة.</p>
+                                
+                                <h5>زوجته وذريته</h5>
+                                <p>زوجته حواء التي خلقها الله من ضلعه. أول أولاده قابيل وهابيل، ثم شيث عليه السلام.</p>
+                            </div>
+                            
+                            <div class="prophet-story">
+                                <h5>قصته مع إبليس</h5>
+                                <p>سكن الجنة مع زوجته حواء. وسوس لهما إبليس فأكلا من الشجرة. تاب الله عليهما بعد أن هبطا إلى الأرض.</p>
+                            </div>
+                            
+                            <div class="prophet-lessons">
+                                <h5>دروس وعبر</h5>
+                                <ul>
+                                    <li>خطورة الغرور والكبر من قصة إبليس</li>
+                                    <li>أهمية التوبة والرجوع إلى الله</li>
+                                    <li>عداوة الشيطان للإنسان</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="prophet-card">
+                            <h4>نوح عليه السلام</h4>
+                            <div class="prophet-info">
+                                <h5>نشأته ونسبه</h5>
+                                <p>نوح بن لمك بن متوشلخ. أول الرسل إلى أهل الأرض. عاش 950 عاماً يدعو قومه.</p>
+                                
+                                <h5>أولاده</h5>
+                                <p>سام وحام ويافث الذين آمنوا معه، وكنعان الذي كفر وغرق مع الكافرين.</p>
+                            </div>
+                            
+                            <div class="prophet-story">
+                                <h5>قصته مع قومه</h5>
+                                <p>دعا قومه إلى عبادة الله وحده ليلاً ونهاراً، سراً وجهاراً. كذبوه واستهزؤوا به. أمره الله ببناء السفينة. نجاه الله ومن معه في السفينة وأغرق الكافرين.</p>
+                            </div>
+                            
+                            <div class="prophet-lessons">
+                                <h5>دروس وعبر</h5>
+                                <ul>
+                                    <li>الصبر على الدعوة مهما طال الزمن</li>
+                                    <li>النجاة تكون بالإيمان والعمل الصالح</li>
+                                    <li>نصر الله قريب للمؤمنين</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="prophet-card">
+                            <h4>إبراهيم عليه السلام</h4>
+                            <div class="prophet-info">
+                                <h5>نشأته ونسبه</h5>
+                                <p>إبراهيم بن آزر، ولد في العراق في مدينة أور. نشأ في بيئة وثنية تعبد الأصنام.</p>
+                                
+                                <h5>زوجاته وأولاده</h5>
+                                <p>تزوج سارة وأنجب منها إسحاق، وتزوج هاجر وأنجب منها إسماعيل عليهما السلام.</p>
+                            </div>
+                            
+                            <div class="prophet-story">
+                                <h5>قصته مع قومه</h5>
+                                <p>حطم الأصنام ودعا قومه للتوحيد. ألقوه في النار فجعلها الله برداً وسلاماً. هاجر إلى الشام ثم مكة. بنى الكعبة مع ابنه إسماعيل.</p>
+                                
+                                <h5>ابتلاءاته</h5>
+                                <p>ابتلاه الله بالنار، وبذبح ولده، وبترك زوجته وابنه في وادٍ غير ذي زرع.</p>
+                            </div>
+                            
+                            <div class="prophet-lessons">
+                                <h5>دروس وعبر</h5>
+                                <ul>
+                                    <li>التوكل على الله والثقة به</li>
+                                    <li>الصبر على الابتلاء</li>
+                                    <li>تقديم طاعة الله على كل شيء</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="prophet-card">
+                            <h4>موسى عليه السلام</h4>
+                            <div class="prophet-info">
+                                <h5>نشأته ونسبه</h5>
+                                <p>ولد في مصر في زمن فرعون. تربى في قصر فرعون. فر إلى مدين بعد قتل القبطي.</p>
+                                
+                                <h5>أخوه وأهله</h5>
+                                <p>أخوه هارون عليه السلام الذي شاركه في الدعوة. تزوج ابنة شعيب عليه السلام في مدين.</p>
+                            </div>
+                            
+                            <div class="prophet-story">
+                                <h5>معجزاته</h5>
+                                <p>العصا التي تتحول إلى ثعبان، واليد البيضاء، وفلق البحر، وغيرها من الآيات التسع.</p>
+                                
+                                <h5>قصته مع فرعون</h5>
+                                <p>دعا فرعون للإيمان بالله. أظهر له المعجزات. نجى الله موسى وقومه وأغرق فرعون وجنوده.</p>
+                            </div>
+                            
+                            <div class="prophet-lessons">
+                                <h5>دروس وعبر</h5>
+                                <ul>
+                                    <li>النصر مع الصبر</li>
+                                    <li>الله يؤيد رسله بالمعجزات</li>
+                                    <li>عاقبة الظلم والطغيان</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="prophet-card">
+                            <h4>عيسى عليه السلام</h4>
+                            <div class="prophet-info">
+                                <h5>نشأته</h5>
+                                <p>ولد من مريم العذراء بكلمة "كن" من الله. نشأ يتيماً تحت رعاية أمه.</p>
+                                
+                                <h5>دعوته</h5>
+                                <p>أرسل إلى بني إسرائيل. دعا إلى التوحيد وتصديق ما جاء في التوراة.</p>
+                            </div>
+                            
+                            <div class="prophet-story">
+                                <h5>معجزاته</h5>
+                                <p>إحياء الموتى بإذن الله، إبراء الأكمه والأبرص، خلق الطير من الطين، التحدث في المهد.</p>
+                                
+                                <h5>قصته مع قومه</h5>
+                                <p>كذبه اليهود واتهموا أمه. حاولوا قتله فرفعه الله إليه. سيعود في آخر الزمان.</p>
+                            </div>
+                            
+                            <div class="prophet-lessons">
+                                <h5>دروس وعبر</h5>
+                                <ul>
+                                    <li>قدرة الله على خلق ما يشاء</li>
+                                    <li>تأييد الله لرسله بالمعجزات</li>
+                                    <li>البشارة بمحمد ﷺ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة سورة الملك -->
+            <div id="mulk-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('mulk')">×</button>
+                    <div class="modal-title">
+                        <h3>سورة الملك</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <h2 class="surah-title">سورة الملك (تبارك)</h2>
+                    
+                    <div class="surah-info">
+                        • سورة مكية
+                        • عدد آياتها:  آية
+                        • ترتيبها: السورة  في القرآن الكريم
+                    </div>
+
+                    <h3>سورة الملك بصوت القراء</h3>
+                    
+                    <div class="audio-list">
+                        <div class="audio-item">
+                            <div class="audio-info">
+                                <span>سورة الملك</span>
+                                <span>بصوت عبد الباسط عبد الصمد</span>
+                            </div>
+                            <div class="audio-frame">
+                                <audio controls preload="none" style="width: 100%;">
+                                    <source src="https://download.quranicaudio.com/quran/abdul_basit_murattal/067.mp3" type="audio/mpeg">
+                                    متصفحك لا يدعم تشغيل الصوت
+                                </audio>
+                            </div>
+                        </div>
+
+                        <div class="audio-item">
+                            <div class="audio-info">
+                                <span>سورة الملك</span>
+                                <span>بصوت محمد صديق المنشاوي</span>
+                            </div>
+                            <div class="audio-frame">
+                                <audio controls preload="none" style="width: 100%;">
+                                    <source src="https://download.quranicaudio.com/quran/muhammad_siddeeq_al-minshaawee/067.mp3" type="audio/mpeg">
+                                    متصفحك لا يدعم تشغيل الصوت
+                                </audio>
+                            </div>
+                        </div>
+
+                        <div class="audio-item">
+                            <div class="audio-info">
+                                <span>سورة الملك</span>
+                                <span>بصوت محمود علي البنا</span>
+                            </div>
+                            <div class="audio-frame">
+                                <audio controls preload="none" style="width: 100%;">
+                                    <source src="https://download.quranicaudio.com/quran/mahmood_ali_albana/067.mp3" type="audio/mpeg">
+                                    متصفحك لا يدعم تشغيل الصوت
+                                </audio>
+                            </div>
+                        </div>
+
+                        <div class="audio-item">
+                            <div class="audio-info">
+                                <span>سورة الملك</span>
+                                <span>بصوت أحمد العجمي</span>
+                            </div>
+                            <div class="audio-frame">
+                                <audio controls preload="none" style="width: 100%;">
+                                    <source src="https://download.quranicaudio.com/quran/ahmed_ibn_3ali_al-3ajamy/067.mp3" type="audio/mpeg">
+                                    متصفحك لا يدعم تشغيل الصوت
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quran-text">
+                        <h3>نص السورة كاملاً:</h3>
+                        <div class="arabic-text">
+                            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                            
+                            تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ ﴿١﴾
+                            
+                            الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا ۚ وَهُوَ الْعَزِيزُ الْغَفُورُ ﴿٢﴾
+                            
+                            الَّذِي خَلَقَ سَبْعَ سَمَاوَاتٍ طِبَاقًا ۖ مَّا تَرَىٰ فِي خَلْقِ الرَّحْمَٰنِ مِن تَفَاوُتٍ ۖ فَارْجِعِ الْبَصَرَ هَلْ تَرَىٰ مِن فُطُورٍ ﴿٣﴾
+                            
+                            ثُمَّ ارْجِعِ الْبَصَرَ كَرَّتَيْنِ يَنقَلِبْ إِلَيْكَ الْبَصَرُ خَاسِئًا وَهُوَ حَسِيرٌ ﴿٤﴾
+                            
+                            وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ وَجَعَلْنَاهَا رُجُومًا لِّلشَّيَاطِينِ ۖ وَأَعْتَدْنَا لَهُمْ عَذَابَ السَّعِيرِ ﴿٥﴾
+                            
+                            وَلِلَّذِينَ كَفَرُوا بِرَبِّهِمْ عَذَابُ جَهَنَّمَ ۖ وَبِئْسَ الْمَصِيرُ ﴿٦﴾
+                            
+                            إِذَا أُلْقُوا فِيهَا سَمِعُوا لَهَا شَهِيقًا وَهِيَ تَفُورُ ﴿٧﴾
+                            
+                            تَكَادُ تَمَيَّزُ مِنَ الْغَيْظِ ۚ كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَا أَلَمْ يَأْتِكُمْ نَذِيرٌ ﴿٨﴾
+                            
+                            قَالُوا بَلَىٰ قَدْ جَاءَنَا نَذِيرٌ فَكَذَّبْنَا وَقُلْنَا مَا نَزَّلَ اللَّهُ مِن شَيْءٍ إِنْ أَنتُمْ إِلَّا فِي ضَلَالٍ كَبِيرٍ ﴿٩﴾
+                            
+                            وَقَالُوا لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ مَا كُنَّا فِي أَصْحَابِ السَّعِيرِ ﴿١٠﴾
+                            
+                            فَاعْتَرَفُوا بِذَنبِهِمْ فَسُحْقًا لِّأَصْحَابِ السَّعِيرِ ﴿١١﴾
+                            
+                            إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُم بِالْغَيْبِ لَهُم مَّغْفِرَةٌ وَأَجْرٌ كَبِيرٌ ﴿١٢﴾
+                            
+                            وَأَسِرُّوا قَوْلَكُمْ أَوِ اجْهَرُوا بِهِ ۖ إِنَّهُ عَلِيمٌ بِذَاتِ الصُّدُورِ ﴿١٣﴾
+                            
+                            أَلَا يَعْلَمُ مَنْ خَلَقَ وَهُوَ اللَّطِيفُ الْخَبِيرُ ﴿١٤﴾
+                            
+                            هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِن رِّزْقِهِ ۖ وَإِلَيْهِ النُّشُورُ ﴿١٥﴾
+                            
+                            أَأَمِنتُم مَّن فِي السَّمَاءِ أَن يَخْسِفَ بِكُمُ الْأَرْضَ فَإِذَا هِيَ تَمُورُ ﴿١٦﴾
+                            
+                            أَمْ أَمِنتُم مَّن فِي السَّمَاءِ أَن يُرْسِلَ عَلَيْكُمْ حَاصِبًا ۖ فَسَتَعْلَمُونَ كَيْفَ نَذِيرِ ﴿١٧﴾
+                            
+                            وَلَقَدْ كَذَّبَ الَّذِينَ مِن قَبْلِهِمْ فَكَيْفَ كَانَ نَكِيرِ ﴿١٨﴾
+                            
+                            أَوَلَمْ يَرَوْا إِلَى الطَّيْرِ فَوْقَهُمْ صَافَّاتٍ وَيَقْبِضْنَ ۖ مَا يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ ۚ إِنَّهُ بِكُلِّ شَيْءٍ بَصِيرٌ ﴿١٩﴾
+                            
+                            أَمَّنْ هَٰذَا الَّذِي هُوَ جُندٌ لَّكُمْ يَنصُرُكُم مِن دُونِ الرَّحْمَٰنِ ۚ إِنِ الْكَافِرُونَ إِلَّا فِي غُرُورٍ ﴿٢٠﴾
+                            
+                            أَمَّنْ هَٰذَا الَّذِي يَرْزُقُكُمْ إِنْ أَمْسَكَ رِزْقَهُ ۚ بَل لَّجُّوا فِي عُتُوٍّ وَنُفُورٍ ﴿٢١﴾
+                            
+                            أَفَمَن يَمْشِي مُكِبًّا عَلَىٰ وَجْهِهِ أَهْدَىٰ أَمَّن يَمْشِي سَوِيًّا عَلَىٰ صِرَاطٍ مُّسْتَقِيمٍ ﴿٢٢﴾
+                            
+                            قُلْ هُوَ الَّذِي أَنشَأَكُمْ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ ۖ قَلِيلًا مَّا تَشْكُرُونَ ﴿٢٣﴾
+                            
+                            قُلْ هُوَ الَّذِي ذَرَأَكُمْ فِي الْأَرْضِ وَإِلَيْهِ تُحْشَرُونَ ﴿٢٤﴾
+                            
+                            وَيَقُولُونَ مَتَىٰ هَٰذَا الْوَعْدُ إِن كُنتُمْ صَادِقِينَ ﴿٢٥﴾
+                            
+                            قُلْ إِنَّمَا الْعِلْمُ عِندَ اللَّهِ وَإِنَّمَا أَنَا نَذِيرٌ مُّبِينٌ ﴿٢٦﴾
+                            
+                            فَلَمَّا رَأَوْهُ زُلْفَةً سِيئَتْ وُجُوهُ الَّذِينَ كَفَرُوا وَقِيلَ هَٰذَا الَّذِي كُنتُم بِهِ تَدَّعُونَ ﴿٢٧﴾
+                            
+                            قُلْ أَرَأَيْتُمْ إِنْ أَهْلَكَنِيَ اللَّهُ وَمَن مَّعِيَ أَوْ رَحِمَنَا فَمَن يُجِيرُ الْكَافِرِينَ مِنْ عَذَابٍ أَلِيمٍ ﴿٢٨﴾
+                            
+                            قُلْ هُوَ الرَّحْمَٰنُ آمَنَّا بِهِ وَعَلَيْهِ تَوَكَّلْنَا ۖ فَسَتَعْلَمُونَ مَنْ هُوَ فِي ضَلَالٍ مُّبِينٍ ﴿٢٩﴾
+                            
+                            قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا فَمَن يَأْتِيكُم بِمَاءٍ مَّعِينٍ ﴿٣٠﴾
+                        </div>
+                    </div>
+
+                    <div class="verse-meaning">
+                        <h3>معاني الكلمات:</h3>
+                        <ul class="meanings-list">
+                            <li>تبارك: تعاظم وتعالى</li>
+                            <li>ليبلوكم: ليختبركم</li>
+                            <li>طباقاً: بعضها فوق بعض</li>
+                            <li>فطور: شقوق وصدوع</li>
+                            <li>حسير: كليل منقطع</li>
+                            <li>مناكبها: جوانبها وطرقها</li>
+                            <li>تمور: تضطرب وتتحرك</li>
+                            <li>حاصباً: ريحاً تحمل الحصباء</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة سورة الكهف -->
+            <div id="kahf-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('kahf')">×</button>
+                    <div class="modal-title">
+                        <h3>سورة الكهف</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <h2 class="surah-title">سورة الكهف</h2>
+                    
+                    <div class="surah-info">
+                        • سورة مكية
+                        • عدد آياتها:  آية
+                        • ترتيبها: السورة  في القرآن الكريم
+                    </div>
+
+                    <h3>سورة الكهف بصوت القراء</h3>
+                    
+                    <div class="audio-list">
+                        <div class="audio-item">
+                            <div class="audio-info">
+                                <span>سورة الكهف</span>
+                                <span>بصوت عبد الباسط عبد الصمد</span>
+                            </div>
+                            <div class="audio-frame">
+                                <audio controls preload="none" style="width: 100%;">
+                                    <source src="https://download.quranicaudio.com/quran/abdul_basit_murattal/018.mp3" type="audio/mpeg">
+                                    متصفحك لا يدعم تشغيل الصوت
+                                </audio>
+                            </div>
+                        </div>
+
+                        <div class="audio-item">
+                            <div class="audio-info">
+                                <span>سورة الكهف</span>
+                                <span>بصوت محمد صديق المنشاوي</span>
+                            </div>
+                            <div class="audio-frame">
+                                <audio controls preload="none" style="width: 100%;">
+                                    <source src="https://download.quranicaudio.com/quran/muhammad_siddeeq_al-minshaawee/018.mp3" type="audio/mpeg">
+                                    متصفحك لا يدعم تشغيل الصوت
+                                </audio>
+                            </div>
+                        </div>
+
+                        <div class="audio-item">
+                            <div class="audio-info">
+                                <span>سورة الكهف</span>
+                                <span>بصوت محمود علي البنا</span>
+                            </div>
+                            <div class="audio-frame">
+                                <audio controls preload="none" style="width: 100%;">
+                                    <source src="https://download.quranicaudio.com/quran/mahmood_ali_albana/018.mp3" type="audio/mpeg">
+                                    متصفحك لا يدعم تشغيل الصوت
+                                </audio>
+                            </div>
+                        </div>
+
+                        <div class="audio-item">
+                            <div class="audio-info">
+                                <span>سورة الكهف</span>
+                                <span>بصوت أحمد العجمي</span>
+                            </div>
+                            <div class="audio-frame">
+                                <audio controls preload="none" style="width: 100%;">
+                                    <source src="https://download.quranicaudio.com/quran/ahmed_ibn_3ali_al-3ajamy/018.mp3" type="audio/mpeg">
+                                    متصفحك لا يدعم تشغيل الصوت
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quran-text">
+                        <h3>نص السورة كاملاً:</h3>
+                        <div class="arabic-text">
+                            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+                            الْحَمْدُ لِلَّهِ الَّذِي أَنزَلَ عَلَىٰ عَبْدِهِ الْكِتَابَ وَلَمْ يَجْعَل لَّهُ عِوَجًا ﴿١﴾
+
+                            قَيِّمًا لِّيُنذِرَ بَأْسًا شَدِيدًا مِن لَّدُنْهُ وَيُبَشِّرَ الْمُؤْمِنِينَ الَّذِينَ يَعْمَلُونَ الصَّالِحَاتِ أَنَّ لَهُمْ أَجْرًا حَسَنًا ﴿٢﴾
+
+                            مَّاكِثِينَ فِيهِ أَبَدًا ﴿٣﴾
+
+                            وَلَقَدْ كَذَّبَ الَّذِينَ مِن قَبْلِهِمْ فَكَيْفَ كَانَ نَكِيرِ ﴿٤﴾
+                            ...
+                        </div>
+                    </div>
+
+                    <div class="verse-meaning">
+                        <h3>معاني بعض الكلمات:</h3>
+                        <ul class="meanings-list">
+                            <li>عِوَجًا: اعوجاجاً واختلافاً</li>
+                            <li>قَيِّمًا: مستقيماً لا اعوجاج فيه</li>
+                            <li>الكهف: الغار الواسع في الجبل</li>
+                            <li>الرقيم: لوح كُتبت فيه أسماؤهم وقصتهم</li>
+                            <li>مرفقاً: ما يرتفقون به من أمرهم</li>
+                            <li>شططاً: ظلماً وتجاوزاً للحد</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة السيرة النبوية -->
+            <div id="seerah-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('seerah')">×</button>
+                    <div class="modal-title">
+                        <h3>السيرة النبوية</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div class="seerah-content">
+                        <div class="prophet-name">
+                            <h2>محمد بن عبد الله بن عبد المطلب بن هاشم بن عبد مناف ﷺ</h2>
+                            <p class="birth-info">ولد في مكة المكرمة يوم الإثنين  ربيع الأول عام الفيل (571م)</p>
+                        </div>
+                        
+                        <div class="seerah-section">
+                            <h3>نسبه الشريف ﷺ</h3>
+                            <p>هو سيد ولد آدم، وخاتم الأنبياء والمرسلين، محمد بن عبد الله بن عبد المطلب بن هاشم بن عبد مناف بن قصي بن كلاب بن مرة بن كعب بن لؤي بن غالب بن فهر بن مالك بن النضر بن كنانة بن خزيمة بن مدركة بن إلياس بن مضر بن نزار بن معد بن عدنان.</p>
+                        </div>
+
+                        <div class="seerah-section">
+                            <h3>نشأته ﷺ</h3>
+                            <p>ولد يتيماً، فقد توفي والده عبد الله وهو في بطن أمه. وفي سن السادسة توفيت أمه آمنة بنت وهب. كفله جده عبد المطلب ثم عمه أبو طالب. عمل في رعي الغنم ثم في التجارة.</p>
+                        </div>
+
+                        <div class="seerah-section">
+                            <h3>بعثته ﷺ</h3>
+                            <p>نزل عليه الوحي في غار حراء وعمره 40 سنة. بدأ بالدعوة سراً ثم جهراً. تحمل مع أصحابه أذى قريش. هاجر إلى المدينة المنورة سنة 622م حيث أسس أول دولة إسلامية.</p>
+                        </div>
+
+                        <div class="seerah-section">
+                            <h3>أخلاقه ﷺ</h3>
+                            <p>كان خلقه القرآن. اشتهر بالصدق والأمانة حتى قبل البعثة. كان أحسن الناس خُلقاً، وأكثرهم تواضعاً، وأشجعهم قلباً. كان رحيماً بالصغير والكبير، وكان يحب المساكين ويجالسهم.</p>
+                        </div>
+
+                        <div class="seerah-section">
+                            <h3>غزواته ﷺ</h3>
+                            <div class="battles-list">
+                                <div class="battle-item">
+                                    <h4>غزوة بدر الكبرى ( هـ)</h4>
+                                    <p>أول معركة كبرى في الإسلام. انتصر فيها المسلمون رغم قلة عددهم. شارك فيها 313 من المسلمين مقابل 1000 من المشركين.</p>
+                                </div>
+                                
+                                <div class="battle-item">
+                                    <h4>غزوة أُحد ( هـ)</h4>
+                                    <p>خرج فيها النبي ﷺ بـ 700 مقاتل. استشهد فيها حمزة بن عبد المطلب رضي الله عنه. درس مهم في أهمية طاعة القائد.</p>
+                                </div>
+                                
+                                <div class="battle-item">
+                                    <h4>غزوة الخندق ( هـ)</h4>
+                                    <p>سميت بالأحزاب لتحزب القبائل ضد المسلمين. حفر المسلمون خندقاً حول المدينة بإشارة من سلمان الفارسي رضي الله عنه.</p>
+                                </div>
+                                
+                                <div class="battle-item">
+                                    <h4>غزوة خيبر ( هـ)</h4>
+                                    <p>فتح حصون خيبر على يد علي بن أبي طالب رضي الله عنه. أسلم بعدها الكثير من اليهود.</p>
+                                </div>
+                                
+                                <div class="battle-item">
+                                    <h4>فتح مكة ( هـ)</h4>
+                                    <p>دخل النبي ﷺ مكة فاتحاً مع 10,000 مقاتل. قال للمشركين: "اذهبوا فأنتم الطلقاء". حطم الأصنام وطهر الكعبة.</p>
+                                </div>
+                                
+                                <div class="battle-item">
+                                    <h4>غزوة حنين ( هـ)</h4>
+                                    <p>بعد فتح مكة مباشرة. انتصر المسلمون رغم المفاجأة في بداية المعركة. غنم المسلمون غنائم كثيرة.</p>
+                                </div>
+                                
+                                <div class="battle-item">
+                                    <h4>غزوة تبوك ( هـ)</h4>
+                                    <p>آخر غزوات النبي ﷺ. جهز فيها جيش العسرة. اختبار للمؤمنين في الصبر والإنفاق.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="seerah-section">
+                            <h3>وفاته ﷺ</h3>
+                            <p>توفي في المدينة المنورة يوم الإثنين  ربيع الأول سنة  هـ (632م) وعمره  سنة. دفن في حجرة السيدة عائشة رضي الله عنها حيث مسجده الشريف.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة قصص الصحابة -->
+            <div id="companions-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('companions')">×</button>
+                    <div class="modal-title">
+                        <h3>قصص الصحابة</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div class="companions-section">
+                        <h3>الخلفاء الراشدون</h3>
+                        <div class="companion-card">
+                            <h4>أبو بكر الصديق رضي الله عنه</h4>
+                            <div class="companion-info">
+                                <h5>نسبه ونشأته</h5>
+                                <p>عبد الله بن عثمان التيمي القرشي. ولد بمكة بعد عام الفيل بسنتين وستة أشهر. كان من أغنياء قريش وأشرافهم.</p>
+                                
+                                <h5>أسرته</h5>
+                                <p>تزوج من أم رومان وأنجب عائشة وعبد الرحمن، ومن أسماء بنت عميس وأنجب محمداً.</p>
+                            </div>
+                            
+                            <div class="companion-story">
+                                <h5>إسلامه ودوره في الدعوة</h5>
+                                <p>أول من أسلم من الرجال. صاحب النبي ﷺ في الهجرة. أنفق ماله كله في سبيل الله. اشترى بلالاً وأعتقه من العذاب.</p>
+                            </div>
+                            
+                            <div class="companion-achievements">
+                                <h5>خلافته وإنجازاته</h5>
+                                <ul>
+                                    <li>تولى الخلافة سنتين وثلاثة أشهر</li>
+                                    <li>جمع القرآن في مصحف واحد</li>
+                                    <li>قضى على حركة الردة</li>
+                                    <li>بدأ الفتوحات الإسلامية</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="companion-card">
+                            <h4>عمر بن الخطاب رضي الله عنه</h4>
+                            <div class="companion-info">
+                                <h5>نسبه ونشأته</h5>
+                                <p>عمر بن الخطاب العدوي القرشي. ولد بعد عام الفيل بثلاث عشرة سنة. كان من أشراف قريش وسفرائها.</p>
+                                
+                                <h5>أسرته</h5>
+                                <p>تزوج من عدة نساء منهن أم كلثوم بنت علي بن أبي طالب. له عدة أولاد منهم عبد الله وحفصة أم المؤمنين.</p>
+                            </div>
+                            
+                            <div class="companion-story">
+                                <h5>إسلامه</h5>
+                                <p>كان شديداً على المسلمين قبل إسلامه. أسلم في السنة السادسة للبعثة. كان إسلامه فتحاً وعزاً للمسلمين.</p>
+                            </div>
+                            
+                            <div class="companion-achievements">
+                                <h5>خلافته وإنجازاته</h5>
+                                <ul>
+                                    <li>أسس الدواوين ونظم الجيش</li>
+                                    <li>وضع التقويم الهجري</li>
+                                    <li>فتحت في عهده الشام والعراق ومصر</li>
+                                    <li>أول من سمي بأمير المؤمنين</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="companion-card">
+                            <h4>عثمان بن عفان رضي الله عنه</h4>
+                            <div class="companion-info">
+                                <h5>نسبه ونشأته</h5>
+                                <p>عثمان بن عفان الأموي القرشي. ولد بعد عام الفيل بست سنين. كان من أغنياء قريش وتجارها.</p>
+                                
+                                <h5>أسرته</h5>
+                                <p>تزوج رقية ثم أم كلثوم بنتي النبي ﷺ فسمي بذي النورين. له عدة أولاد منهم عبد الله وعمرو.</p>
+                            </div>
+                            
+                            <div class="companion-story">
+                                <h5>إسلامه وجهاده</h5>
+                                <p>من السابقين الأولين للإسلام. هاجر الهجرتين للحبشة. جهز جيش العسرة. اشترى بئر رومة وتصدق بها.</p>
+                            </div>
+                            
+                            <div class="companion-achievements">
+                                <h5>خلافته وإنجازاته</h5>
+                                <ul>
+                                    <li>جمع القرآن في مصحف واحد</li>
+                                    <li>وسع المسجد النبوي</li>
+                                    <li>فتحت في عهده أرمينيا وأذربيجان</li>
+                                    <li>أول من اتخذ الشرطة</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="companion-card">
+                            <h4>علي بن أبي طالب رضي الله عنه</h4>
+                            <div class="companion-info">
+                                <h5>نسبه ونشأته</h5>
+                                <p>علي بن أبي طالب الهاشمي القرشي. ولد قبل البعثة بعشر سنين. تربى في بيت النبي ﷺ.</p>
+                                
+                                <h5>أسرته</h5>
+                                <p>تزوج فاطمة بنت النبي ﷺ. أنجب الحسن والحسين وزينب وأم كلثوم رضي الله عنهم.</p>
+                            </div>
+                            
+                            <div class="companion-story">
+                                <h5>إسلامه وجهاده</h5>
+                                <p>أول من أسلم من الصبيان. بات في فراش النبي ﷺ ليلة الهجرة. شهد المشاهد كلها إلا تبوك.</p>
+                            </div>
+                            
+                            <div class="companion-achievements">
+                                <h5>خلافته وإنجازاته</h5>
+                                <ul>
+                                    <li>أعلم الصحابة بالقضاء</li>
+                                    <li>من أشجع الصحابة وأزهدهم</li>
+                                    <li>له باب في المسجد النبوي</li>
+                                    <li>حامل راية النبي ﷺ في المعارك</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>من المبشرين بالجنة</h3>
+                        <div class="companion-card">
+                            <h4>طلحة بن عبيد الله رضي الله عنه</h4>
+                            <p>أحد العشرة المبشرين بالجنة. من السابقين الأولين. وقى النبي ﷺ بيده يوم أحد حتى شلت.</p>
+                        </div>
+                        <div class="companion-card">
+                            <h4>الزبير بن العوام رضي الله عنه</h4>
+                            <p>حواري رسول الله ﷺ وابن عمته. أول من سل سيفاً في الإسلام. شهد المشاهد كلها مع النبي ﷺ.</p>
+                        </div>
+                        <div class="companion-card">
+                            <h4>سعد بن أبي وقاص رضي الله عنه</h4>
+                            <p>أول من رمى بسهم في سبيل الله. فاتح العراق وقائد القادسية. دعا له النبي ﷺ باستجابة الدعاء.</p>
+                        </div>
+
+                        <h3>صحابيات جليلات</h3>
+                        <div class="companion-card">
+                            <h4>خديجة بنت خويلد رضي الله عنها</h4>
+                            <p>أم المؤمنين وأول من آمن بالنبي ﷺ. واسته بمالها ونفسها. بشرها النبي ﷺ ببيت في الجنة من قصب.</p>
+                        </div>
+                        <div class="companion-card">
+                            <h4>عائشة بنت أبي بكر رضي الله عنها</h4>
+                            <p>أم المؤمنين وأحب نساء النبي ﷺ إليه. أعلم نساء الأمة وأفقههن. روت أكثر من 2000 حديث.</p>
+                        </div>
+                        <div class="companion-card">
+                            <h4>فاطمة الزهراء رضي الله عنها</h4>
+                            <p>بنت النبي ﷺ وسيدة نساء العالمين. أمها خديجة بنت خويلد. تزوجها علي بن أبي طالب وأنجبت الحسن والحسين.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة أعلام الأمة -->
+            <div id="scholars-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('scholars')">×</button>
+                    <div class="modal-title">
+                        <h3>أعلام الأمة</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div class="content-section">
+                        <h3>الإمام البخاري</h3>
+                        <div class="info-box">
+                            <p>أمير المؤمنين في الحديث</p>
+                            <p>صاحب أصح كتاب بعد القرآن</p>
+                            <p>حفظ مئة ألف حديث</p>
+                            <p>بدأ طلب العلم وهو صغير</p>
+                        </div>
+
+                        <h3>الإمام مالك</h3>
+                        <div class="info-box">
+                            <p>إمام دار الهجرة</p>
+                            <p>صاحب الموطأ</p>
+                            <p>فقيه المدينة</p>
+                            <p>من أئمة المذاهب الأربعة</p>
+                        </div>
+
+                        <h3>الإمام الشافعي</h3>
+                        <div class="info-box">
+                            <p>ناصر السنة</p>
+                            <p>حفظ القرآن وهو ابن سبع</p>
+                            <p>مؤسس علم أصول الفقه</p>
+                            <p>شاعر وأديب</p>
+                        </div>
+
+                        <h3>الإمام أحمد</h3>
+                        <div class="info-box">
+                            <p>صاحب المسند</p>
+                            <p>إمام أهل السنة</p>
+                            <p>ثبت في المحنة</p>
+                            <p>الزاهد الورع</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة الإعدادات -->
+            <div id="settings-modal" class="modal full-screen-modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('settings-modal')">×</button>
+                    <div class="modal-title">
+                        <h3>الإعدادات</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div class="settings-container">
+                        <!-- قسم إعدادات الأذان -->
+                        <div class="settings-section adhan-settings">
+                            <h3>إعدادات الأذان</h3>
+                            
+                            <!-- اختيار المؤذن -->
+                            <div class="setting-item">
+                                <label for="muadhin" class="setting-label">اختيار المؤذن</label>
+                                <select id="muadhin" name="muadhin" class="setting-select">
+                                    <option value="makkah">الحرم المكي</option>
+                                    <option value="madinah">مشاري راشد العفاسي</option>
+                                    <option value="tobar">نصر الدين طوبار</option>
+                                    <option value="qatami">ناصر القطامي</option>
+                                    <option value="refaat">محمد رفعت</option>
+                                    <option value="husary">محمود الحصري</option>
+                                    <option value="minshawi">محمد صديق المنشاوي</option>
+                                    <option value="basit">عبد الباسط عبد الصمد</option>
+                                    <option value="quds">أذان القدس</option>
+                                </select>
+                            </div>
+
+                            <!-- مستوى صوت الأذان -->
+                            <div class="setting-item">
+                                <label for="adhanVolume" class="setting-label">مستوى صوت الأذان</label>
+                                <div class="volume-control">
+                                    <input type="range" id="adhanVolume" name="adhanVolume" min="0" max="100" value="70" class="volume-slider">
+                                    <span class="volume-value">70%</span>
+                                </div>
+                            </div>
+
+                            <!-- معاينة الأذان -->
+                            <div class="setting-item">
+                                <div class="audio-controls">
+                                    <button id="toggleAdhan" class="adhan-test-button" onclick="toggleAdhan()">
+                                        <i class="fas fa-volume-up"></i>
+                                        <span>اختبار الصوت</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- قسم إعدادات التنبيهات -->
+                        <div class="settings-section notifications-settings">
+                            <h3>إعدادات التنبيهات</h3>
+
+                            <!-- تذكير قبل الصلاة -->
+                            <div class="setting-item">
+                                <label for="beforePrayerTime" class="setting-label">تذكير قبل الصلاة</label>
+                                <select id="beforePrayerTime" name="beforePrayerTime" class="setting-select">
+                                    <option value="5">5 دقائق</option>
+                                    <option value="10">10 دقائق</option>
+                                    <option value="15">15 دقيقة</option>
+                                    <option value="20">20 دقيقة</option>
+                                    <option value="30">30 دقيقة</option>
+                                </select>
+                            </div>
+
+                            <!-- تأكيد الصلاة -->
+                            <div class="setting-item">
+                                <label for="prayerConfirmation" class="setting-label">تذكير! إذا لم يتم تأكيد الصلاة</label>
+                                <select id="prayerConfirmation" name="prayerConfirmation" class="setting-select">
+                                    <option value="5">5 دقائق</option>
+                                    <option value="10">10 دقائق</option>
+                                    <option value="15">15 دقيقة</option>
+                                    <option value="20">20 دقيقة</option>
+                                    <option value="30">30 دقيقة</option>
+                                </select>
+                            </div>
+
+                            <!-- نوع التنبيه -->
+                            <div class="setting-item">
+                                <h4>نوع التنبيه</h4>
+                                <div class="notification-types">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="soundNotification" name="soundNotification" checked>
+                                        <span class="checkmark"></span>
+                                        صوت الأذان
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="vibrationNotification" name="vibrationNotification" checked>
+                                        <span class="checkmark"></span>
+                                        اهتزاز
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="screenNotification" name="screenNotification" checked>
+                                        <span class="checkmark"></span>
+                                        رسالة على الشاشة
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- الوضع الصامت -->
+                            <div class="setting-item">
+                                <h4>الوضع الصامت</h4>
+                                <div class="notification-types">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="silentMode" name="silentMode">
+                                        <span class="checkmark"></span>
+                                        تفعيل الوضع الصامت
+                                    </label>
+                                    <div class="silent-mode-times">
+                                        <div class="time-range">
+                                            <div class="time-input-container">
+                                                <span>وقت البدء</span>
+                                                <input type="time" id="silentModeStart" name="silentModeStart" value="22:00">
+                                            </div>
+                                            <div class="time-input-container">
+                                                <span>إلى</span>
+                                                <input type="time" id="silentModeEnd" name="silentModeEnd" value="05:00">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- قسم إعدادات المظهر -->
+                        <div class="settings-section appearance-settings">
+                            <h3>إعدادات المظهر</h3>
+
+                            <!-- الإضاءة -->
+                            <div class="setting-item">
+                                <label for="brightnessSlider" class="setting-label">الإضاءة</label>
+                                <div class="volume-control">
+                                    <input type="range" id="brightnessSlider" min="0" max="100" value="100" class="volume-slider" onchange="updateBrightness(this.value)">
+                                    <span class="volume-value brightness-value">100%</span>
+                                </div>
+                            </div>
+
+                            <!-- حجم الخط -->
+                            <div class="setting-item">
+                                <label for="fontSizeSlider" class="setting-label">حجم الخط</label>
+                                <div class="volume-control">
+                                    <input type="range" id="fontSizeSlider" min="12" max="24" value="16" class="volume-slider" onchange="updateFontSize(this.value)">
+                                    <span class="volume-value font-size-value">16</span>
+                                </div>
+                            </div>
+
+                            <!-- نوع الخط -->
+                            <div class="setting-item">
+                                <label for="fontSelector" class="setting-label">نوع الخط</label>
+                                <select id="fontSelector" name="fontSelector" class="setting-select" onchange="updateFontFamily(this.value)">
+                                    <option value="Amiri">أميري</option>
+                                    <option value="Cairo">القاهرة</option>
+                                    <option value="Noto Naskh Arabic">نوتو نسخ</option>
+                                    <option value="Tajawal">طجوال</option>
+                                    <option value="Aref Ruqaa">عارف رقعة</option>
+                                    <option value="Reem Kufi">ريم كوفي</option>
+                                    <option value="Lateef">لطيف</option>
+                                    <option value="Scheherazade New">شهرزاد</option>
+                                    <option value="Harmattan">حرمتان</option>
+                                    <option value="Markazi Text">مركزي</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة من نحن -->
+            <div id="about-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('about-modal')">×</button>
+                    <div class="modal-title">
+                        <h3>من نحن</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div class="about-section">
+                        <div class="app-info">
+                            <i class="fas fa-quran app-icon"></i>
+                            <h2>تطبيق زاد المسلم</h2>
+                            <p class="version">الإصدار 1.0.0</p>
+                        </div>
+                        <div class="app-description">
+                            <p>تطبيق إسلامي شامل يهدف إلى تقديم المحتوى القرآني والأذكار والأدعية بطريقة سهلة وميسرة.</p>
+                        </div>
+                        <div class="features">
+                            <h4>المميزات:</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> الرقية الشرعية</li>
+                                <li><i class="fas fa-book"></i> سور القرآن الكريم</li>
+                                <li><i class="fas fa-history"></i> قصص الأنبياء</li>
+                                <li><i class="fas fa-user"></i> السيرة النبوية</li>
+                                <li><i class="fas fa-clock"></i> مواقيت الصلاة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة اتصل بنا -->
+            <div id="contact-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('contact-modal')">×</button>
+                    <div class="modal-title">
+                        <h3>اتصل بنا</h3>
+                    </div>
+                </div>
+                <div class="modal-content contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="input-group">
+                            <input type="text" id="name" name="name" placeholder="الاسم" required>
+                            <div class="icon-container">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" required>
+                            <div class="icon-container">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="message" name="message" placeholder="محتوى الرسالة" required></textarea>
+                            <div class="icon-container">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>إرسال</span>
+                        </button>
+                    </form>
+                    <div id="success-message" class="success-message" style="display: none;">
+                        <span>تم إرسال رسالتك بنجاح!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة مواقيت الصلاة -->
+            <div id="prayer-times-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('prayer-times-modal')">×</button>
+                    <div class="modal-title">
+                        <h3>مواقيت الصلاة</h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div id="location-message" class="location-message"></div>
+                    <div class="prayer-times-container">
+                        <div class="clock-section">
+                            <div class="digital-clock">00:00:00</div>
+                            <div class="prayer-time-box remaining-box">
+                                <div class="prayer-name">متبقي على <span id="remaining-prayer-name">الفجر</span></div>
+                                <div class="prayer-time">00:00:00</div>
+                            </div>
+                            <div class="quran-verse">﴿ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضَاهَا ۚ فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ ﴾</div>
+                            <div class="date-display">
+                                <span class="day-name"></span>
+                                <span class="date"></span>
+                            </div>
+                        </div>
+                        <div class="prayer-times">
+                            <div class="prayer-time-box" data-prayer="Fajr">
+                                <div class="prayer-name">الفجر</div>
+                                <div class="prayer-time">4:41 ص</div>
+                            </div>
+                            <div class="prayer-time-box" data-prayer="Sunrise">
+                                <div class="prayer-name">الشروق</div>
+                                <div class="prayer-time">6:10 ص</div>
+                            </div>
+                            <div class="prayer-time-box" data-prayer="Dhuhr">
+                                <div class="prayer-name">الظهر</div>
+                                <div class="prayer-time">11:52 ص</div>
+                            </div>
+                            <div class="prayer-time-box" data-prayer="Asr">
+                                <div class="prayer-name">العصر</div>
+                                <div class="prayer-time">2:45 م</div>
+                            </div>
+                            <div class="prayer-time-box" data-prayer="Maghrib">
+                                <div class="prayer-name">المغرب</div>
+                                <div class="prayer-time">5:15 م</div>
+                            </div>
+                            <div class="prayer-time-box" data-prayer="Isha">
+                                <div class="prayer-name">العشاء</div>
+                                <div class="prayer-time">6:45 م</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نافذة اتجاه القبلة -->
+            <div id="qibla-compass-modal" class="modal">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeModal('qibla-compass')">×</button>
+                    <div class="modal-title">
+                        <h3>اتجاه القبلة <i class="fas fa-kaaba"></i></h3>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div id="qibla-location-message" class="location-message"></div>
+                    <div class="qibla-container">
+                        <div class="compass-wrapper">
+                            <div class="compass-container">
+                                <div class="compass-ring">
+                                    <div class="compass-face">
+                                        <div class="compass-markings">
+                                            <div class="mark-n">N</div>
+                                            <div class="mark-s">S</div>
+                                            <div class="mark-e">E</div>
+                                            <div class="mark-w">W</div>
+                                            <div class="degree-marks"></div>
+                                        </div>
+                                        <div class="compass-arrow"></div>
+                                    </div>
+                                </div>
+                                <div class="kaaba-marker">
+                                    <i class="fas fa-kaaba"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qibla-info">
+                            <span class="qibla-angle-display">
+                                <span>زاوية القبلة:</span>
+                                <span id="qibla-angle">0°</span>
+                            </span>
+                        </div>
+                        <div class="quran-verse">﴿ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضَاهَا ۚ فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ ﴾</div>
+                        <div class="date-display">
+                            <span class="day-name"></span>
+                            <span class="date"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+            <script src="prayer-notifications.js"></script>
+            <script src="prayer.js"></script>
+            <script src="script.js"></script>
+            <script src="clocks.js"></script>
+            <script src="prayer_times.js"></script>
+            <script src="settings.js"></script>
+            <script src="js/audio_manager.js" defer></script>
+            <script src="js/prayer_settings.js" defer></script>
+            <script src="js/appearance_settings.js" defer></script>
+            <script src="js/language.js" defer></script>
+            <script src="js/language-manager.js" defer></script>
+            <script src="js/translations.js" defer></script>
+            <script src="js/main.js" defer></script>
+            <script src="js/clock.js" defer></script>
+            <script src="js/clocks.js" defer></script>
+            <script src="js/notifications.js" defer></script>
+            <script src="js/prayer-notifications.js" defer></script>
+            <script src="js/prayer-alert.js" defer></script>
+
+            <script>
+                // EmailJS Configuration
+                const EMAILJS_PUBLIC_KEY = '99PekU9UhSQKEhZbp';
+                const EMAILJS_SERVICE_ID = 'service_0jgrrre';
+                const EMAILJS_TEMPLATE_ID = 'template_xcgvgp4';
+
+                (function() {
+                    emailjs.init(EMAILJS_PUBLIC_KEY);
+                })();
+            </script>
+            <script>
+                // تهيئة الإعدادات عند تحميل الصفحة
+                document.addEventListener('DOMContentLoaded', function() {
+                    // تحميل اللغة المحفوظة
+                    const savedLanguage = localStorage.getItem('language') || 'ar';
+                    changeLanguage(savedLanguage);
+
+                    // تحميل حجم الخط المحفوظ
+                    const savedFontSize = localStorage.getItem('fontSize') || '16';
+                    document.getElementById('font-size').value = savedFontSize;
+                    updateFontSize(savedFontSize);
+
+                    // تحميل نوع الخط المحفوظ
+                    const savedFontFamily = localStorage.getItem('fontFamily') || 'Amiri';
+                    document.getElementById('font-family').value = savedFontFamily;
+                    updateFontFamily(savedFontFamily);
+                });
+
+                // تحديث حجم الخط
+                function updateFontSize(size) {
+                    document.documentElement.style.setProperty('--base-font-size', size + 'px');
+                    document.getElementById('font-size-value').textContent = size;
+                    localStorage.setItem('fontSize', size);
+                }
+
+                // تحديث نوع الخط
+                function updateFontFamily(font) {
+                    document.body.style.fontFamily = font;
+                    localStorage.setItem('fontFamily', font);
+                }
+            </script>
+            <script>
+                // كود التحكم في النوافذ المنبثقة
+                let closeButtons = document.querySelectorAll('.close-button');
+                
+                // إضافة مستمع الحدث لكل زر إغلاق
+                closeButtons.forEach(button => {
+                    button.onclick = function(e) {
+                        e.preventDefault();
+                        let modal = this.closest('.modal');
+                        if (modal) {
+                            modal.style.display = 'none';
+                        }
+                    };
+                });
+
+                // إغلاق النافذة عند النقر خارجها
+                window.onclick = function(e) {
+                    if (e.target.classList.contains('modal')) {
+                        e.target.style.display = 'none';
+                    }
+                };
+
+                // دالة فتح النافذة
+                function showModal(modalId) {
+                    let modal = document.getElementById(modalId + '-modal');
+                    if (modal) {
+                        modal.style.display = 'flex';
+                    }
+                }
+
+                // دالة إغلاق النافذة
+                function closeModal(modalId) {
+                    modalId = modalId.replace('-modal', '');
+                    let modal = document.getElementById(modalId + '-modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                }
+
+                // إعادة تعيين مستمعات الأحداث عند تحميل الصفحة
+                document.addEventListener('DOMContentLoaded', function() {
+                    closeButtons = document.querySelectorAll('.close-button');
+                    closeButtons.forEach(button => {
+                        button.onclick = function(e) {
+                            e.preventDefault();
+                            let modal = this.closest('.modal');
+                            if (modal) {
+                                modal.style.display = 'none';
+                            }
+                        };
+                    });
+                });
+            </script>
+            <script>
+                // تسجيل Service Worker
+                if ('serviceWorker' in navigator) {
+                    window.addEventListener('load', () => {
+                        navigator.serviceWorker.register('./sw.js')
+                            .then(registration => {
+                                console.log('ServiceWorker registration successful');
+                            })
+                            .catch(err => {
+                                console.log('ServiceWorker registration failed: ', err);
+                            });
+                    });
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

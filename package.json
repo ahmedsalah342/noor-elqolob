@@ -1,0 +1,35 @@
+{
+  "name": "zad-al-muslim",
+  "version": "1.0.0",
+  "description": "تطبيق إسلامي شامل",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s .",
+    "build": "npm run build:web",
+    "build:web": "mkdir -p www && cp -r *.html *.css *.js assets icons images audio www/",
+    "cap:init": "cap init",
+    "cap:add": "cap add android",
+    "cap:sync": "cap sync",
+    "cap:open": "cap open android"
+  },
+  "keywords": [
+    "islamic",
+    "prayer",
+    "quran"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^5.5.0",
+    "@capacitor/core": "^5.5.0",
+    "@capacitor/geolocation": "^5.0.6",
+    "@capacitor/local-notifications": "^5.0.6",
+    "@capacitor/preferences": "^5.0.6",
+    "@capacitor/splash-screen": "^5.0.6",
+    "@capacitor/status-bar": "^5.0.6"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.5.0",
+    "serve": "^14.2.1"
+  }
+}
